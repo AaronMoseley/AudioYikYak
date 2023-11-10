@@ -1,0 +1,681 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E1E20E632AFD6BDA00445F8E /* AudioYikYakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E20E622AFD6BDA00445F8E /* AudioYikYakApp.swift */; };
+		E1E20E652AFD6BDA00445F8E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E20E642AFD6BDA00445F8E /* ContentView.swift */; };
+		E1E20E672AFD6BDC00445F8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1E20E662AFD6BDC00445F8E /* Assets.xcassets */; };
+		E1E20E6B2AFD6BDC00445F8E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1E20E6A2AFD6BDC00445F8E /* Preview Assets.xcassets */; };
+		E1E20E752AFD6BDC00445F8E /* AudioYikYakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E20E742AFD6BDC00445F8E /* AudioYikYakTests.swift */; };
+		E1E20E7F2AFD6BDC00445F8E /* AudioYikYakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E20E7E2AFD6BDC00445F8E /* AudioYikYakUITests.swift */; };
+		E1E20E812AFD6BDC00445F8E /* AudioYikYakUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E20E802AFD6BDC00445F8E /* AudioYikYakUITestsLaunchTests.swift */; };
+		E1E20E8E2AFD6C8200445F8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1E20E8D2AFD6C8200445F8E /* GoogleService-Info.plist */; };
+		E1E20E912AFD6D1400445F8E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E1E20E902AFD6D1400445F8E /* FirebaseFirestore */; };
+		E1E20E932AFD6D1400445F8E /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E1E20E922AFD6D1400445F8E /* FirebaseFirestoreCombine-Community */; };
+		E1E20E952AFD6D1400445F8E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E1E20E942AFD6D1400445F8E /* FirebaseFirestoreSwift */; };
+		E1E20E9A2AFD7B2700445F8E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E20E992AFD7B2700445F8E /* User.swift */; };
+		E1E20E9C2AFD7D3500445F8E /* DatabaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E20E9B2AFD7D3500445F8E /* DatabaseInterface.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E1E20E712AFD6BDC00445F8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1E20E572AFD6BDA00445F8E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1E20E5E2AFD6BDA00445F8E;
+			remoteInfo = AudioYikYak;
+		};
+		E1E20E7B2AFD6BDC00445F8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1E20E572AFD6BDA00445F8E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1E20E5E2AFD6BDA00445F8E;
+			remoteInfo = AudioYikYak;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E1E20E5F2AFD6BDA00445F8E /* AudioYikYak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioYikYak.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1E20E622AFD6BDA00445F8E /* AudioYikYakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioYikYakApp.swift; sourceTree = "<group>"; };
+		E1E20E642AFD6BDA00445F8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E1E20E662AFD6BDC00445F8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E1E20E682AFD6BDC00445F8E /* AudioYikYak.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudioYikYak.entitlements; sourceTree = "<group>"; };
+		E1E20E6A2AFD6BDC00445F8E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E1E20E702AFD6BDC00445F8E /* AudioYikYakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioYikYakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1E20E742AFD6BDC00445F8E /* AudioYikYakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioYikYakTests.swift; sourceTree = "<group>"; };
+		E1E20E7A2AFD6BDC00445F8E /* AudioYikYakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioYikYakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1E20E7E2AFD6BDC00445F8E /* AudioYikYakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioYikYakUITests.swift; sourceTree = "<group>"; };
+		E1E20E802AFD6BDC00445F8E /* AudioYikYakUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioYikYakUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E1E20E8D2AFD6C8200445F8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E1E20E992AFD7B2700445F8E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E1E20E9B2AFD7D3500445F8E /* DatabaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInterface.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1E20E5C2AFD6BDA00445F8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1E20E912AFD6D1400445F8E /* FirebaseFirestore in Frameworks */,
+				E1E20E932AFD6D1400445F8E /* FirebaseFirestoreCombine-Community in Frameworks */,
+				E1E20E952AFD6D1400445F8E /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1E20E6D2AFD6BDC00445F8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1E20E772AFD6BDC00445F8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E1E20E562AFD6BDA00445F8E = {
+			isa = PBXGroup;
+			children = (
+				E1E20E612AFD6BDA00445F8E /* AudioYikYak */,
+				E1E20E732AFD6BDC00445F8E /* AudioYikYakTests */,
+				E1E20E7D2AFD6BDC00445F8E /* AudioYikYakUITests */,
+				E1E20E602AFD6BDA00445F8E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E1E20E602AFD6BDA00445F8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1E20E5F2AFD6BDA00445F8E /* AudioYikYak.app */,
+				E1E20E702AFD6BDC00445F8E /* AudioYikYakTests.xctest */,
+				E1E20E7A2AFD6BDC00445F8E /* AudioYikYakUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1E20E612AFD6BDA00445F8E /* AudioYikYak */ = {
+			isa = PBXGroup;
+			children = (
+				E1E20E962AFD7AA600445F8E /* DatabaseObjs */,
+				E1E20E8D2AFD6C8200445F8E /* GoogleService-Info.plist */,
+				E1E20E622AFD6BDA00445F8E /* AudioYikYakApp.swift */,
+				E1E20E642AFD6BDA00445F8E /* ContentView.swift */,
+				E1E20E662AFD6BDC00445F8E /* Assets.xcassets */,
+				E1E20E682AFD6BDC00445F8E /* AudioYikYak.entitlements */,
+				E1E20E692AFD6BDC00445F8E /* Preview Content */,
+				E1E20E9B2AFD7D3500445F8E /* DatabaseInterface.swift */,
+			);
+			path = AudioYikYak;
+			sourceTree = "<group>";
+		};
+		E1E20E692AFD6BDC00445F8E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E1E20E6A2AFD6BDC00445F8E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E1E20E732AFD6BDC00445F8E /* AudioYikYakTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1E20E742AFD6BDC00445F8E /* AudioYikYakTests.swift */,
+			);
+			path = AudioYikYakTests;
+			sourceTree = "<group>";
+		};
+		E1E20E7D2AFD6BDC00445F8E /* AudioYikYakUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E1E20E7E2AFD6BDC00445F8E /* AudioYikYakUITests.swift */,
+				E1E20E802AFD6BDC00445F8E /* AudioYikYakUITestsLaunchTests.swift */,
+			);
+			path = AudioYikYakUITests;
+			sourceTree = "<group>";
+		};
+		E1E20E962AFD7AA600445F8E /* DatabaseObjs */ = {
+			isa = PBXGroup;
+			children = (
+				E1E20E992AFD7B2700445F8E /* User.swift */,
+			);
+			path = DatabaseObjs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1E20E5E2AFD6BDA00445F8E /* AudioYikYak */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1E20E842AFD6BDC00445F8E /* Build configuration list for PBXNativeTarget "AudioYikYak" */;
+			buildPhases = (
+				E1E20E5B2AFD6BDA00445F8E /* Sources */,
+				E1E20E5C2AFD6BDA00445F8E /* Frameworks */,
+				E1E20E5D2AFD6BDA00445F8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AudioYikYak;
+			packageProductDependencies = (
+				E1E20E902AFD6D1400445F8E /* FirebaseFirestore */,
+				E1E20E922AFD6D1400445F8E /* FirebaseFirestoreCombine-Community */,
+				E1E20E942AFD6D1400445F8E /* FirebaseFirestoreSwift */,
+			);
+			productName = AudioYikYak;
+			productReference = E1E20E5F2AFD6BDA00445F8E /* AudioYikYak.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E1E20E6F2AFD6BDC00445F8E /* AudioYikYakTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1E20E872AFD6BDC00445F8E /* Build configuration list for PBXNativeTarget "AudioYikYakTests" */;
+			buildPhases = (
+				E1E20E6C2AFD6BDC00445F8E /* Sources */,
+				E1E20E6D2AFD6BDC00445F8E /* Frameworks */,
+				E1E20E6E2AFD6BDC00445F8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1E20E722AFD6BDC00445F8E /* PBXTargetDependency */,
+			);
+			name = AudioYikYakTests;
+			productName = AudioYikYakTests;
+			productReference = E1E20E702AFD6BDC00445F8E /* AudioYikYakTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E1E20E792AFD6BDC00445F8E /* AudioYikYakUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1E20E8A2AFD6BDC00445F8E /* Build configuration list for PBXNativeTarget "AudioYikYakUITests" */;
+			buildPhases = (
+				E1E20E762AFD6BDC00445F8E /* Sources */,
+				E1E20E772AFD6BDC00445F8E /* Frameworks */,
+				E1E20E782AFD6BDC00445F8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1E20E7C2AFD6BDC00445F8E /* PBXTargetDependency */,
+			);
+			name = AudioYikYakUITests;
+			productName = AudioYikYakUITests;
+			productReference = E1E20E7A2AFD6BDC00445F8E /* AudioYikYakUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1E20E572AFD6BDA00445F8E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					E1E20E5E2AFD6BDA00445F8E = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					E1E20E6F2AFD6BDC00445F8E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = E1E20E5E2AFD6BDA00445F8E;
+					};
+					E1E20E792AFD6BDC00445F8E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = E1E20E5E2AFD6BDA00445F8E;
+					};
+				};
+			};
+			buildConfigurationList = E1E20E5A2AFD6BDA00445F8E /* Build configuration list for PBXProject "AudioYikYak" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E1E20E562AFD6BDA00445F8E;
+			packageReferences = (
+				E1E20E8F2AFD6D1400445F8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = E1E20E602AFD6BDA00445F8E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1E20E5E2AFD6BDA00445F8E /* AudioYikYak */,
+				E1E20E6F2AFD6BDC00445F8E /* AudioYikYakTests */,
+				E1E20E792AFD6BDC00445F8E /* AudioYikYakUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1E20E5D2AFD6BDA00445F8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1E20E6B2AFD6BDC00445F8E /* Preview Assets.xcassets in Resources */,
+				E1E20E672AFD6BDC00445F8E /* Assets.xcassets in Resources */,
+				E1E20E8E2AFD6C8200445F8E /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1E20E6E2AFD6BDC00445F8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1E20E782AFD6BDC00445F8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1E20E5B2AFD6BDA00445F8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1E20E9A2AFD7B2700445F8E /* User.swift in Sources */,
+				E1E20E652AFD6BDA00445F8E /* ContentView.swift in Sources */,
+				E1E20E632AFD6BDA00445F8E /* AudioYikYakApp.swift in Sources */,
+				E1E20E9C2AFD7D3500445F8E /* DatabaseInterface.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1E20E6C2AFD6BDC00445F8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1E20E752AFD6BDC00445F8E /* AudioYikYakTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1E20E762AFD6BDC00445F8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1E20E7F2AFD6BDC00445F8E /* AudioYikYakUITests.swift in Sources */,
+				E1E20E812AFD6BDC00445F8E /* AudioYikYakUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E1E20E722AFD6BDC00445F8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1E20E5E2AFD6BDA00445F8E /* AudioYikYak */;
+			targetProxy = E1E20E712AFD6BDC00445F8E /* PBXContainerItemProxy */;
+		};
+		E1E20E7C2AFD6BDC00445F8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1E20E5E2AFD6BDA00445F8E /* AudioYikYak */;
+			targetProxy = E1E20E7B2AFD6BDC00445F8E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E1E20E822AFD6BDC00445F8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E1E20E832AFD6BDC00445F8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		E1E20E852AFD6BDC00445F8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AudioYikYak/AudioYikYak.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AudioYikYak/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CS498.AudioYikYak;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E1E20E862AFD6BDC00445F8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AudioYikYak/AudioYikYak.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AudioYikYak/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CS498.AudioYikYak;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E1E20E882AFD6BDC00445F8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CS498.AudioYikYakTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AudioYikYak.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AudioYikYak";
+			};
+			name = Debug;
+		};
+		E1E20E892AFD6BDC00445F8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CS498.AudioYikYakTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AudioYikYak.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AudioYikYak";
+			};
+			name = Release;
+		};
+		E1E20E8B2AFD6BDC00445F8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CS498.AudioYikYakUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AudioYikYak;
+			};
+			name = Debug;
+		};
+		E1E20E8C2AFD6BDC00445F8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CS498.AudioYikYakUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AudioYikYak;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1E20E5A2AFD6BDA00445F8E /* Build configuration list for PBXProject "AudioYikYak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1E20E822AFD6BDC00445F8E /* Debug */,
+				E1E20E832AFD6BDC00445F8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1E20E842AFD6BDC00445F8E /* Build configuration list for PBXNativeTarget "AudioYikYak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1E20E852AFD6BDC00445F8E /* Debug */,
+				E1E20E862AFD6BDC00445F8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1E20E872AFD6BDC00445F8E /* Build configuration list for PBXNativeTarget "AudioYikYakTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1E20E882AFD6BDC00445F8E /* Debug */,
+				E1E20E892AFD6BDC00445F8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1E20E8A2AFD6BDC00445F8E /* Build configuration list for PBXNativeTarget "AudioYikYakUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1E20E8B2AFD6BDC00445F8E /* Debug */,
+				E1E20E8C2AFD6BDC00445F8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1E20E8F2AFD6D1400445F8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.17.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1E20E902AFD6D1400445F8E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1E20E8F2AFD6D1400445F8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		E1E20E922AFD6D1400445F8E /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1E20E8F2AFD6D1400445F8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		E1E20E942AFD6D1400445F8E /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1E20E8F2AFD6D1400445F8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E1E20E572AFD6BDA00445F8E /* Project object */;
+}
