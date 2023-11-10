@@ -8,65 +8,83 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var output = ""
+    @State private var usernameIn = ""
+    @State private var passwordIn = ""
+    
+    @State private var usernameList = ""
+    @State private var correctPassword = ""
+    
     
     var body: some View {
         VStack {
+            TextField("Username: ", text: $usernameIn)
+            TextField("Password: ", text: $passwordIn)
+            
             Button(action: {
-                //Task { await testGetUsernames() }
-                //testAddUser()
-                //Task { await testCheckPassword() }
-                Task { await testCheckIfUsernameExists() }
+                testAddUser()
             }, label: {
-                Text("Test")
+                Text("Add User")
                     .fontWeight(.heavy)
                     .foregroundColor(.white)
                     .padding()
                     .background(Color.blue)
                     .cornerRadius(15)
-            }
-            )
+            })
             
-            Text("Output: \(output)")
+            Button(action: {
+                Task { await testGetUsernames() }
+            }, label: {
+                Text("List All Usernames")
+                    .fontWeight(.heavy)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(15)
+            })
+            Text("Usernames: \(usernameList)")
+            
+            Button(action: {
+                Task { await testCheckPassword() }
+            }, label: {
+                Text("Check Password")
+                    .fontWeight(.heavy)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(15)
+            })
+            
+            Text("Correct Password: \(correctPassword)")
         }
         .padding()
     }
     
     func testAddUser () {
-        self.output = "going"
+        addUser(username: self.usernameIn, password: self.passwordIn, bio: "Another test bio")
         
-        addUser(username: "testUsername", password: "asdfg", bio: "Another test bio")
-        
-        self.output += "gone"
+        self.usernameIn = ""
+        self.passwordIn = ""
     }
     
     func testGetUsernames () async {
-        self.output = "going"
+        usernameList = ""
         
         let users = await getUsers()
-        for user in users {
-            self.output += user + " "
-        }
         
-        self.output += "gone"
+        for user in users {
+            usernameList += user + " "
+        }
     }
     
     func testCheckPassword() async {
-        self.output = "going"
+        let accountExists = await checkIfUsernameExists(username: self.usernameIn)
         
-        let result = await checkPassword(username: "aaronmoseley", inputPassword: "125")
-        self.output += String(result)
-        
-        self.output += "gone"
-    }
-    
-    func testCheckIfUsernameExists() async {
-        self.output = "going"
-        
-        let result = await checkIfUsernameExists(username: "aaronmoseley")
-        self.output += String(result)
-        
-        self.output += "gone"
+        if !accountExists {
+            self.correctPassword = "Account does not exist"
+        } else {
+            let result = await checkPassword(username: self.usernameIn, inputPassword: self.passwordIn)
+            self.correctPassword = String(result)
+        }
     }
 }
 
