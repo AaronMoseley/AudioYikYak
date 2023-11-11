@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E14B37812AFF0ADC00CA0D86 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B37802AFF0ADC00CA0D86 /* Item.swift */; };
-		E14B37832AFF0AE500CA0D86 /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B37822AFF0AE500CA0D86 /* XDismissButton.swift */; };
 		E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377D2AFF0ACA00CA0D86 /* StartView.swift */; };
-		E14B37862AFF0C2B00CA0D86 /* SLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B37852AFF0C2B00CA0D86 /* SLButton.swift */; };
 		E14B37872AFF0C2F00CA0D86 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */; };
 		E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */; };
+		E14B378C2AFF13ED00CA0D86 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B37892AFF13ED00CA0D86 /* Item.swift */; };
+		E14B378D2AFF13ED00CA0D86 /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B378A2AFF13ED00CA0D86 /* XDismissButton.swift */; };
+		E14B378E2AFF13ED00CA0D86 /* SLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B378B2AFF13ED00CA0D86 /* SLButton.swift */; };
 		E1E20E632AFD6BDA00445F8E /* AudioYikYakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E20E622AFD6BDA00445F8E /* AudioYikYakApp.swift */; };
 		E1E20E652AFD6BDA00445F8E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E20E642AFD6BDA00445F8E /* ContentView.swift */; };
 		E1E20E672AFD6BDC00445F8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1E20E662AFD6BDC00445F8E /* Assets.xcassets */; };
@@ -49,9 +49,9 @@
 		E14B377D2AFF0ACA00CA0D86 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		E14B37802AFF0ADC00CA0D86 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../../../Documents/BenYikYak/rekord/Item.swift; sourceTree = "<group>"; };
-		E14B37822AFF0AE500CA0D86 /* XDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XDismissButton.swift; path = ../../../Documents/BenYikYak/rekord/XDismissButton.swift; sourceTree = "<group>"; };
-		E14B37852AFF0C2B00CA0D86 /* SLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLButton.swift; path = ../../../Documents/BenYikYak/rekord/SLButton.swift; sourceTree = "<group>"; };
+		E14B37892AFF13ED00CA0D86 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E14B378A2AFF13ED00CA0D86 /* XDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
+		E14B378B2AFF13ED00CA0D86 /* SLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLButton.swift; sourceTree = "<group>"; };
 		E1E20E5F2AFD6BDA00445F8E /* AudioYikYak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioYikYak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E20E622AFD6BDA00445F8E /* AudioYikYakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioYikYakApp.swift; sourceTree = "<group>"; };
 		E1E20E642AFD6BDA00445F8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,15 +119,15 @@
 		E1E20E612AFD6BDA00445F8E /* AudioYikYak */ = {
 			isa = PBXGroup;
 			children = (
+				E14B37892AFF13ED00CA0D86 /* Item.swift */,
+				E14B378B2AFF13ED00CA0D86 /* SLButton.swift */,
+				E14B378A2AFF13ED00CA0D86 /* XDismissButton.swift */,
 				E14B377D2AFF0ACA00CA0D86 /* StartView.swift */,
 				E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */,
 				E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */,
 				E1E20E992AFD7B2700445F8E /* User.swift */,
 				E1E20E8D2AFD6C8200445F8E /* GoogleService-Info.plist */,
-				E14B37802AFF0ADC00CA0D86 /* Item.swift */,
-				E14B37852AFF0C2B00CA0D86 /* SLButton.swift */,
 				E1E20E622AFD6BDA00445F8E /* AudioYikYakApp.swift */,
-				E14B37822AFF0AE500CA0D86 /* XDismissButton.swift */,
 				E1E20E642AFD6BDA00445F8E /* ContentView.swift */,
 				E1E20E662AFD6BDC00445F8E /* Assets.xcassets */,
 				E1E20E682AFD6BDC00445F8E /* AudioYikYak.entitlements */,
@@ -301,15 +301,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E14B37812AFF0ADC00CA0D86 /* Item.swift in Sources */,
 				E1E20E9A2AFD7B2700445F8E /* User.swift in Sources */,
 				E1E20E652AFD6BDA00445F8E /* ContentView.swift in Sources */,
+				E14B378D2AFF13ED00CA0D86 /* XDismissButton.swift in Sources */,
 				E14B37872AFF0C2F00CA0D86 /* LoginView.swift in Sources */,
+				E14B378E2AFF13ED00CA0D86 /* SLButton.swift in Sources */,
 				E1E20E632AFD6BDA00445F8E /* AudioYikYakApp.swift in Sources */,
-				E14B37862AFF0C2B00CA0D86 /* SLButton.swift in Sources */,
+				E14B378C2AFF13ED00CA0D86 /* Item.swift in Sources */,
 				E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */,
 				E1E20E9C2AFD7D3500445F8E /* DatabaseInterface.swift in Sources */,
-				E14B37832AFF0AE500CA0D86 /* XDismissButton.swift in Sources */,
 				E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
