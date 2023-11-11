@@ -13,6 +13,7 @@ struct SignUpView: View {
     @Binding var isLoggedIn: Bool
     @Binding var username: String
     @Binding var password: String
+    @State var errorMessage: String
     
     var body: some View {
         VStack {
@@ -29,8 +30,7 @@ struct SignUpView: View {
                     .padding()
                     
                 Button {
-                    isShowingSignUpView = false
-                    isLoggedIn = true
+                    Task { await signUp() }
                 } label: {
                     Label("Sign Up", systemImage: "arrow.forward")
                 }
@@ -41,6 +41,22 @@ struct SignUpView: View {
             .padding()
             
             Spacer()
+            
+            Text("\(errorMessage)")
         }
+    }
+    
+    func signUp () async {
+        var usernameExists = await checkIfUsernameExists(username: self.username)
+        
+        if usernameExists {
+            self.errorMessage = "User already exists"
+            return
+        }
+        
+        addUser(username: self.username, password: self.password, bio: "")
+        
+        isShowingSignUpView = false
+        isLoggedIn = true
     }
 }

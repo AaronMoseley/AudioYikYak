@@ -13,6 +13,7 @@ struct LoginView: View {
     @Binding var isLoggedIn: Bool
     @Binding var username: String
     @Binding var password: String
+    @State var errorMessage: String
     
     var body: some View {
         
@@ -32,8 +33,7 @@ struct LoginView: View {
             .padding()
             
             Button {
-                isShowingLoginView = false
-                isLoggedIn = true
+                Task { await checkCanLogIn() }
             } label: {
                 Label("Login", systemImage: "rectangle.portrait.and.arrow.forward")
             }
@@ -42,6 +42,26 @@ struct LoginView: View {
             .controlSize(.large)
             
             Spacer()
+            
+            Text("\(errorMessage)")
+        }
+    }
+    
+    func checkCanLogIn() async {
+        var usernameResult = await checkIfUsernameExists(username: self.username)
+        
+        if !usernameResult {
+            self.errorMessage = "User does not exist"
+            return
+        }
+        
+        var passwordResult = await checkPassword(username: self.username, inputPassword: self.password)
+        
+        if !passwordResult {
+            errorMessage = "Incorrect password"
+        } else {
+            isShowingLoginView = false
+            isLoggedIn = true
         }
     }
 }

@@ -19,6 +19,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct AudioYikYakApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,

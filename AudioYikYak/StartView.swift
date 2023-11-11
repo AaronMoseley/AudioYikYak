@@ -28,10 +28,10 @@ struct StartView: View {
             }
             
             .sheet(isPresented: $isShowingLoginView) {
-                LoginView(isShowingLoginView: $isShowingLoginView, isLoggedIn: $isLoggedIn, username: $username, password: $password)
+                LoginView(isShowingLoginView: $isShowingLoginView, isLoggedIn: $isLoggedIn, username: $username, password: $password, errorMessage: "")
             }
             .sheet(isPresented: $isShowingSignUpView) {
-                SignUpView(isShowingSignUpView: $isShowingSignUpView, isLoggedIn: $isLoggedIn, username: $username, password: $password)
+                SignUpView(isShowingSignUpView: $isShowingSignUpView, isLoggedIn: $isLoggedIn, username: $username, password: $password, errorMessage: "")
             }
         }
     }
