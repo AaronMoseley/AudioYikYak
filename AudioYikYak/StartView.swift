@@ -28,7 +28,7 @@ struct StartView: View {
             }
             
             .sheet(isPresented: $isShowingLoginView) {
-                LoginView(isShowingLoginView: $isShowingLoginView, isLoggedIn: $isLoggedIn, username: $username, password: $password, errorMessage: "")
+                LoginView(username: $username, password: $password, viewModel: .init(), isShowingLoginView: $isShowingLoginView)
             }
             .sheet(isPresented: $isShowingSignUpView) {
                 SignUpView(isShowingSignUpView: $isShowingSignUpView, isLoggedIn: $isLoggedIn, username: $username, password: $password, errorMessage: "")

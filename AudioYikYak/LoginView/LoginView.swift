@@ -9,11 +9,11 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @Binding var isShowingLoginView: Bool
-    @Binding var isLoggedIn: Bool
     @Binding var username: String
     @Binding var password: String
-    @State var errorMessage: String
+    @ObservedObject var viewModel: LoginViewModel
+    @Binding var isShowingLoginView: Bool
+    
     
     var body: some View {
         
@@ -33,7 +33,7 @@ struct LoginView: View {
             .padding()
             
             Button {
-                Task { await checkCanLogIn() }
+                Task { await viewModel.checkCanLogIn(username: username, password: password, isShowingLoginView: isShowingLoginView) }
             } label: {
                 Label("Login", systemImage: "rectangle.portrait.and.arrow.forward")
             }
@@ -43,26 +43,12 @@ struct LoginView: View {
             
             Spacer()
             
-            Text("\(errorMessage)")
+            Text("\(viewModel.errorMessage)")
         }
+        .onChange(of: viewModel.shouldShowLoginView) { newValue in
+                    isShowingLoginView = newValue
+                }
     }
     
-    func checkCanLogIn() async {
-        var usernameResult = await checkIfUsernameExists(username: self.username)
-        
-        if !usernameResult {
-            self.errorMessage = "User does not exist"
-            return
-        }
-        
-        var passwordResult = await checkPassword(username: self.username, inputPassword: self.password)
-        
-        if !passwordResult {
-            errorMessage = "Incorrect password"
-        } else {
-            isShowingLoginView = false
-            isLoggedIn = true
-        }
-    }
 }
 
