@@ -19,17 +19,27 @@ struct LoginView: View {
     var body: some View {
         
         VStack {
-            
             XDismissButton(isShowingModal: $isShowingLoginView)
-            
+            Spacer()
             VStack(spacing: 20) {
                 TextField("Username", text: $username)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                    
+                    .background(.white)
+                    .cornerRadius(UIValues.cornerRadius)
+                    .padding(EdgeInsets(top: 0,
+                                        leading: UIValues.sidePadding,
+                                        bottom: 0,
+                                        trailing: UIValues.sidePadding))
+                
                 SecureField("Password", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
+                    .background(.white)
+                    .cornerRadius(UIValues.cornerRadius)
+                    .padding(EdgeInsets(top: 0,
+                                        leading: UIValues.sidePadding,
+                                        bottom: 0,
+                                        trailing: UIValues.sidePadding))
+                
             }
             .padding()
             
@@ -43,15 +53,26 @@ struct LoginView: View {
             .controlSize(.large)
             
             Spacer()
+            Spacer()
             
             Text("\(viewModel.errorMessage)")
-        }.onChange(of: viewModel.shouldShowLoginView) { oldValue, newValue in
-                    isShowingLoginView = newValue
+        }
+        .background(UIValues.customBackground)
+        .onChange(of: viewModel.shouldShowLoginView) { oldValue, newValue in
+            isShowingLoginView = newValue
         }
         .onChange(of: viewModel.isLoggedIn) { oldValue, newValue in
             isLoggedIn = newValue
         }
+        
+        
     }
     
+    
+    struct LoginView_Previews: PreviewProvider {
+        static var previews: some View {
+            LoginView(username: .constant(""), password: .constant(""), viewModel: .init(), isShowingLoginView: .constant(true), isLoggedIn: .constant(true))
+        }
+    }
 }
 

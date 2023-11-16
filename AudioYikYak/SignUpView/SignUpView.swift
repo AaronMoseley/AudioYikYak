@@ -14,22 +14,30 @@ struct SignUpView: View {
     @Binding var password: String
     @ObservedObject var viewModel: SignUpViewModel
     @Binding var isLoggedIn: Bool
-
+    
     var body: some View {
         VStack {
-            
             XDismissButton(isShowingModal: $isShowingSignUpView)
-            
+            Spacer()
             VStack(spacing: 20) {
                 TextField("Username", text: $username)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                    
+                    .background(.white)
+                    .cornerRadius(UIValues.cornerRadius)
+                    .padding(EdgeInsets(top: 0,
+                                        leading: UIValues.sidePadding,
+                                        bottom: 0,
+                                        trailing: UIValues.sidePadding))
+                
                 SecureField("Password", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                  
                     .padding()
-                    
+                    .background(.white)
+                    .cornerRadius(UIValues.cornerRadius)
+                    .padding(EdgeInsets(top: 0,
+                                        leading: UIValues.sidePadding,
+                                        bottom: 0,
+                                        trailing: UIValues.sidePadding))
+                
                 Button {
                     Task { await viewModel.signUp(username: username, password: password) }
                 } label: {
@@ -42,13 +50,15 @@ struct SignUpView: View {
             .padding()
             
             Spacer()
+            Spacer()
             
             Text("\(viewModel.errorMessage)")
-        }.onChange(of: viewModel.shouldShowSignUpView) { oldValue, newValue in
-            isShowingSignUpView = newValue
-        }.onChange(of: viewModel.isLoggedIn) { oldValue, newValue in
-            isLoggedIn = newValue
-        }
+        }.background(UIValues.customBackground)
+            .onChange(of: viewModel.shouldShowSignUpView) { oldValue, newValue in
+                isShowingSignUpView = newValue
+            }.onChange(of: viewModel.isLoggedIn) { oldValue, newValue in
+                isLoggedIn = newValue
+            }
     }
     
     

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		88165CEB2B06A8D500A1C8A6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CEA2B06A8D500A1C8A6 /* LoginViewModel.swift */; };
 		88165CF02B06B02A00A1C8A6 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */; };
+		88165CF22B06BDDD00A1C8A6 /* UIValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CF12B06BDDD00A1C8A6 /* UIValues.swift */; };
 		E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377D2AFF0ACA00CA0D86 /* StartView.swift */; };
 		E14B37872AFF0C2F00CA0D86 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */; };
 		E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		88165CEA2B06A8D500A1C8A6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		88165CF12B06BDDD00A1C8A6 /* UIValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIValues.swift; sourceTree = "<group>"; };
 		E14B377D2AFF0ACA00CA0D86 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				E14B378B2AFF13ED00CA0D86 /* SLButton.swift */,
 				E14B378A2AFF13ED00CA0D86 /* XDismissButton.swift */,
+				88165CF12B06BDDD00A1C8A6 /* UIValues.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				E1E20E632AFD6BDA00445F8E /* AudioYikYakApp.swift in Sources */,
 				E14B378C2AFF13ED00CA0D86 /* Item.swift in Sources */,
 				E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */,
+				88165CF22B06BDDD00A1C8A6 /* UIValues.swift in Sources */,
 				E1E20E9C2AFD7D3500445F8E /* DatabaseInterface.swift in Sources */,
 				88165CF02B06B02A00A1C8A6 /* SignUpViewModel.swift in Sources */,
 				E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */,
