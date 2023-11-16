@@ -13,6 +13,7 @@ struct LoginView: View {
     @Binding var password: String
     @ObservedObject var viewModel: LoginViewModel
     @Binding var isShowingLoginView: Bool
+    @Binding var isLoggedIn: Bool
     
     
     var body: some View {
@@ -33,7 +34,7 @@ struct LoginView: View {
             .padding()
             
             Button {
-                Task { await viewModel.checkCanLogIn(username: username, password: password, isShowingLoginView: isShowingLoginView) }
+                Task { await viewModel.checkCanLogIn(username: username, password: password) }
             } label: {
                 Label("Login", systemImage: "rectangle.portrait.and.arrow.forward")
             }
@@ -44,10 +45,12 @@ struct LoginView: View {
             Spacer()
             
             Text("\(viewModel.errorMessage)")
-        }
-        .onChange(of: viewModel.shouldShowLoginView) { newValue in
+        }.onChange(of: viewModel.shouldShowLoginView) { oldValue, newValue in
                     isShowingLoginView = newValue
-                }
+        }
+        .onChange(of: viewModel.isLoggedIn) { oldValue, newValue in
+            isLoggedIn = newValue
+        }
     }
     
 }

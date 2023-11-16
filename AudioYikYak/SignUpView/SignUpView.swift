@@ -10,11 +10,11 @@ import SwiftUI
 struct SignUpView: View {
     
     @Binding var isShowingSignUpView: Bool
-    @Binding var isLoggedIn: Bool
     @Binding var username: String
     @Binding var password: String
-    @State var errorMessage: String
-    
+    @ObservedObject var viewModel: SignUpViewModel
+    @Binding var isLoggedIn: Bool
+
     var body: some View {
         VStack {
             
@@ -27,10 +27,11 @@ struct SignUpView: View {
                     
                 SecureField("Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                  
                     .padding()
                     
                 Button {
-                    Task { await signUp() }
+                    Task { await viewModel.signUp(username: username, password: password) }
                 } label: {
                     Label("Sign Up", systemImage: "arrow.forward")
                 }
@@ -42,21 +43,13 @@ struct SignUpView: View {
             
             Spacer()
             
-            Text("\(errorMessage)")
+            Text("\(viewModel.errorMessage)")
+        }.onChange(of: viewModel.shouldShowSignUpView) { oldValue, newValue in
+            isShowingSignUpView = newValue
+        }.onChange(of: viewModel.isLoggedIn) { oldValue, newValue in
+            isLoggedIn = newValue
         }
     }
     
-    func signUp () async {
-        var usernameExists = await checkIfUsernameExists(username: self.username)
-        
-        if usernameExists {
-            self.errorMessage = "User already exists"
-            return
-        }
-        
-        addUser(username: self.username, password: self.password, bio: "")
-        
-        isShowingSignUpView = false
-        isLoggedIn = true
-    }
+    
 }
