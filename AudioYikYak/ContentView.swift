@@ -90,6 +90,7 @@ struct ContentView: View {
     
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    @State private var showProfile = false
 
     var body: some View {
         NavigationSplitView {
@@ -103,6 +104,11 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
+            .background(
+                NavigationLink(destination: ProfileView(user: .constant(mockUser)), isActive: $showProfile) {
+                    EmptyView()
+                }
+            )
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -110,6 +116,13 @@ struct ContentView: View {
                 ToolbarItem {
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")
+                    }
+                }
+                ToolbarItem {
+                    Button {
+                        showProfile = true
+                    } label: {
+                        Text("Profile")
                     }
                 }
             }

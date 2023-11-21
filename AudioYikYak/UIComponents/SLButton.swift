@@ -15,7 +15,7 @@ struct SLButton: View {
     
     var body: some View {
         Button {
-            isShowingModal = true
+            isShowingModal = !isShowingModal
         } label: {
             Label(title, systemImage: imageName)
         }
