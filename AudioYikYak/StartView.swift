@@ -35,6 +35,20 @@ struct StartView: View {
             }
         }
     }
+    
+    /*func testDownloadFile() async {
+        let finished = { (input: Bool) in
+            print(input)
+        }
+
+        let username = await downloadAudioFile(completion: finished, index: 0, outputFileName: "/Users/aaronmoseley/Desktop/AudioYikYak/testAudio.mp3")
+        
+        print(username)
+    }
+    
+    func testUploadFile() async {
+        await uploadAudioFile(username: "testUsername", currentFileName: "/Users/aaronmoseley/Desktop/AudioYikYak/testAudio.mp3")
+    }*/
 }
 
 #Preview {

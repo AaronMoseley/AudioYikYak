@@ -8,7 +8,107 @@
 import Foundation
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseStorage
+
+func uploadAudioFile(username: String, currentFileName: String) async {
+    let storage = Storage.storage()
+    let storageRef = storage.reference()
+    let fileRef = storageRef.child(username + "-" + String(NSDate().timeIntervalSince1970) + ".m4a")
     
+    let localFile = URL(fileURLWithPath: currentFileName)
+    
+    let metadata = StorageMetadata()
+    metadata.customMetadata = ["username": username]
+    
+    print(localFile.absoluteString)
+    
+    let uploadTask = fileRef.putFile(from: localFile, metadata: metadata) { metadata, error in
+        guard metadata == metadata else {
+            print("Error uploading file")
+            return
+        }
+    }
+    
+    uploadTask.observe(.success) { snapshot in
+        print("Uploaded successfully")
+    }
+    
+    uploadTask.observe(.failure) { snapshot in
+        if let error = snapshot.error as? NSError {
+            switch (StorageErrorCode(rawValue: error.code)!) {
+            case .objectNotFound:
+                print("File doesn't exist")
+                break
+            case .unauthorized:
+                print("Unauthorized")
+                break
+            case .cancelled:
+                print("Cancelled")
+                break
+            case .unknown:
+                print("Unknown error")
+                break
+            default:
+                print("Retry upload")
+                break
+            }
+        }
+    }
+}
+
+func downloadAudioFile(completion: @escaping (Bool) -> Void, index: Int, outputFileName: String) async -> String {
+    let storage = Storage.storage()
+    let storageRef = storage.reference()
+    
+    var fileName = ""
+    
+    do {
+        let fileNames = try await storageRef.listAll().items
+        if fileNames.count <= index {
+            return ""
+        } else {
+            fileName = fileNames[index].name
+        }
+    } catch {
+        return ""
+    }
+    
+    let fileRef = storageRef.child(fileName)
+    
+    var username = ""
+    
+    do {
+        let meta = try await fileRef.getMetadata()
+        username = meta.customMetadata?["username"] ?? ""
+    } catch {
+        return ""
+    }
+    
+    if username == "" {
+        return ""
+    }
+    
+    let localURL = URL(fileURLWithPath: outputFileName)
+    
+    let downloadTask = fileRef.write(toFile: localURL) { url, error in
+        if let error = error {
+            print("Error has occured while downloading file")
+        }
+    }
+    
+    downloadTask.observe(.success) { snapshot in
+        completion(true)
+        downloadTask.removeAllObservers()
+    }
+    
+    downloadTask.observe(.failure) { snapshot in
+        completion(false)
+        downloadTask.removeAllObservers()
+    }
+    
+    return username
+}
+
 func getUsers() async -> Array<String> {
     let db = Firestore.firestore()
     var users: [String] = []
