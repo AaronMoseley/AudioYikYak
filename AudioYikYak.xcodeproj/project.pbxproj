@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88165CEB2B06A8D500A1C8A6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CEA2B06A8D500A1C8A6 /* LoginViewModel.swift */; };
+		88165CF02B06B02A00A1C8A6 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */; };
+		88165CF22B06BDDD00A1C8A6 /* UIValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CF12B06BDDD00A1C8A6 /* UIValues.swift */; };
 		E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377D2AFF0ACA00CA0D86 /* StartView.swift */; };
 		E14B37872AFF0C2F00CA0D86 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */; };
 		E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */; };
@@ -47,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		88165CEA2B06A8D500A1C8A6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		88165CF12B06BDDD00A1C8A6 /* UIValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIValues.swift; sourceTree = "<group>"; };
 		E14B377D2AFF0ACA00CA0D86 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -98,6 +104,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88165CE92B06A8C600A1C8A6 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */,
+				88165CEA2B06A8D500A1C8A6 /* LoginViewModel.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		88165CEC2B06AD6C00A1C8A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1E20E992AFD7B2700445F8E /* User.swift */,
+				E14B37892AFF13ED00CA0D86 /* Item.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		88165CED2B06AD7900A1C8A6 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				E14B378B2AFF13ED00CA0D86 /* SLButton.swift */,
+				E14B378A2AFF13ED00CA0D86 /* XDismissButton.swift */,
+				88165CF12B06BDDD00A1C8A6 /* UIValues.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		88165CEE2B06AD8D00A1C8A6 /* SignUpView */ = {
+			isa = PBXGroup;
+			children = (
+				E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */,
+				88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */,
+			);
+			path = SignUpView;
+			sourceTree = "<group>";
+		};
 		E1E20E562AFD6BDA00445F8E = {
 			isa = PBXGroup;
 			children = (
@@ -121,13 +164,11 @@
 		E1E20E612AFD6BDA00445F8E /* AudioYikYak */ = {
 			isa = PBXGroup;
 			children = (
-				E14B37892AFF13ED00CA0D86 /* Item.swift */,
-				E14B378B2AFF13ED00CA0D86 /* SLButton.swift */,
-				E14B378A2AFF13ED00CA0D86 /* XDismissButton.swift */,
+				88165CED2B06AD7900A1C8A6 /* UIComponents */,
+				88165CEC2B06AD6C00A1C8A6 /* Models */,
 				E14B377D2AFF0ACA00CA0D86 /* StartView.swift */,
-				E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */,
-				E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */,
-				E1E20E992AFD7B2700445F8E /* User.swift */,
+				88165CE92B06A8C600A1C8A6 /* LoginView */,
+				88165CEE2B06AD8D00A1C8A6 /* SignUpView */,
 				E1E20E8D2AFD6C8200445F8E /* GoogleService-Info.plist */,
 				E1E20E622AFD6BDA00445F8E /* AudioYikYakApp.swift */,
 				E1E20E642AFD6BDA00445F8E /* ContentView.swift */,
@@ -306,13 +347,16 @@
 			files = (
 				E1E20E9A2AFD7B2700445F8E /* User.swift in Sources */,
 				E1E20E652AFD6BDA00445F8E /* ContentView.swift in Sources */,
+				88165CEB2B06A8D500A1C8A6 /* LoginViewModel.swift in Sources */,
 				E14B378D2AFF13ED00CA0D86 /* XDismissButton.swift in Sources */,
 				E14B37872AFF0C2F00CA0D86 /* LoginView.swift in Sources */,
 				E14B378E2AFF13ED00CA0D86 /* SLButton.swift in Sources */,
 				E1E20E632AFD6BDA00445F8E /* AudioYikYakApp.swift in Sources */,
 				E14B378C2AFF13ED00CA0D86 /* Item.swift in Sources */,
 				E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */,
+				88165CF22B06BDDD00A1C8A6 /* UIValues.swift in Sources */,
 				E1E20E9C2AFD7D3500445F8E /* DatabaseInterface.swift in Sources */,
+				88165CF02B06B02A00A1C8A6 /* SignUpViewModel.swift in Sources */,
 				E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
