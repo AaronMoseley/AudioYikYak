@@ -12,6 +12,13 @@
 		88165CEB2B06A8D500A1C8A6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CEA2B06A8D500A1C8A6 /* LoginViewModel.swift */; };
 		88165CF02B06B02A00A1C8A6 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */; };
 		88165CF22B06BDDD00A1C8A6 /* UIValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CF12B06BDDD00A1C8A6 /* UIValues.swift */; };
+		8817BCA92B147D2800442FC8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCA82B147D2800442FC8 /* Logger.swift */; };
+		8817BCAB2B15106D00442FC8 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCAA2B15106D00442FC8 /* AudioRecorder.swift */; };
+		8817BCAD2B15108800442FC8 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCAC2B15108800442FC8 /* AudioPlayer.swift */; };
+		8817BCAF2B15110800442FC8 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCAE2B15110800442FC8 /* Recording.swift */; };
+		8817BCB22B15130400442FC8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCB12B15130400442FC8 /* Helper.swift */; };
+		8817BCB42B1514B200442FC8 /* AudioProc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCB32B1514B200442FC8 /* AudioProc.swift */; };
+		8817BCB82B151B9C00442FC8 /* RecordingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCB72B151B9C00442FC8 /* RecordingsList.swift */; };
 		E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377D2AFF0ACA00CA0D86 /* StartView.swift */; };
 		E14B37872AFF0C2F00CA0D86 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */; };
 		E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */; };
@@ -57,6 +64,13 @@
 		88165CEA2B06A8D500A1C8A6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		88165CF12B06BDDD00A1C8A6 /* UIValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIValues.swift; sourceTree = "<group>"; };
+		8817BCA82B147D2800442FC8 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8817BCAA2B15106D00442FC8 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		8817BCAC2B15108800442FC8 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		8817BCAE2B15110800442FC8 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		8817BCB12B15130400442FC8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		8817BCB32B1514B200442FC8 /* AudioProc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioProc.swift; sourceTree = "<group>"; };
+		8817BCB72B151B9C00442FC8 /* RecordingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsList.swift; sourceTree = "<group>"; };
 		E14B377D2AFF0ACA00CA0D86 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -138,6 +152,7 @@
 			children = (
 				E1E20E992AFD7B2700445F8E /* User.swift */,
 				E14B37892AFF13ED00CA0D86 /* Item.swift */,
+				8817BCAE2B15110800442FC8 /* Recording.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,6 +174,16 @@
 				88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */,
 			);
 			path = SignUpView;
+			sourceTree = "<group>";
+		};
+		8817BCB02B1512EC00442FC8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E1E20E9B2AFD7D3500445F8E /* DatabaseInterface.swift */,
+				8817BCA82B147D2800442FC8 /* Logger.swift */,
+				8817BCB12B15130400442FC8 /* Helper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		E1E20E562AFD6BDA00445F8E = {
@@ -184,6 +209,9 @@
 		E1E20E612AFD6BDA00445F8E /* AudioYikYak */ = {
 			isa = PBXGroup;
 			children = (
+				8817BCB02B1512EC00442FC8 /* Helper */,
+				8817BCAC2B15108800442FC8 /* AudioPlayer.swift */,
+				8817BCAA2B15106D00442FC8 /* AudioRecorder.swift */,
 				398D2EA42B0D59B000990867 /* EditProfileView */,
 				398D2E9D2B0D542C00990867 /* ProfileView */,
 				88165CED2B06AD7900A1C8A6 /* UIComponents */,
@@ -197,7 +225,8 @@
 				E1E20E662AFD6BDC00445F8E /* Assets.xcassets */,
 				E1E20E682AFD6BDC00445F8E /* AudioYikYak.entitlements */,
 				E1E20E692AFD6BDC00445F8E /* Preview Content */,
-				E1E20E9B2AFD7D3500445F8E /* DatabaseInterface.swift */,
+				8817BCB32B1514B200442FC8 /* AudioProc.swift */,
+				8817BCB72B151B9C00442FC8 /* RecordingsList.swift */,
 			);
 			path = AudioYikYak;
 			sourceTree = "<group>";
@@ -323,6 +352,7 @@
 			mainGroup = E1E20E562AFD6BDA00445F8E;
 			packageReferences = (
 				E1E20E8F2AFD6D1400445F8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8817BCB52B151AC000442FC8 /* XCRemoteSwiftPackageReference "DSWaveformImage" */,
 			);
 			productRefGroup = E1E20E602AFD6BDA00445F8E /* Products */;
 			projectDirPath = "";
@@ -367,20 +397,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8817BCAB2B15106D00442FC8 /* AudioRecorder.swift in Sources */,
 				398D2EA62B0D59BC00990867 /* EditProfileView.swift in Sources */,
 				E1E20E9A2AFD7B2700445F8E /* User.swift in Sources */,
 				E1E20E652AFD6BDA00445F8E /* ContentView.swift in Sources */,
 				88165CEB2B06A8D500A1C8A6 /* LoginViewModel.swift in Sources */,
 				E14B378D2AFF13ED00CA0D86 /* XDismissButton.swift in Sources */,
 				E14B37872AFF0C2F00CA0D86 /* LoginView.swift in Sources */,
+				8817BCB22B15130400442FC8 /* Helper.swift in Sources */,
 				E14B378E2AFF13ED00CA0D86 /* SLButton.swift in Sources */,
+				8817BCB82B151B9C00442FC8 /* RecordingsList.swift in Sources */,
+				8817BCA92B147D2800442FC8 /* Logger.swift in Sources */,
 				E1E20E632AFD6BDA00445F8E /* AudioYikYakApp.swift in Sources */,
 				E14B378C2AFF13ED00CA0D86 /* Item.swift in Sources */,
+				8817BCAD2B15108800442FC8 /* AudioPlayer.swift in Sources */,
 				E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */,
+				8817BCAF2B15110800442FC8 /* Recording.swift in Sources */,
 				88165CF22B06BDDD00A1C8A6 /* UIValues.swift in Sources */,
 				E1E20E9C2AFD7D3500445F8E /* DatabaseInterface.swift in Sources */,
 				88165CF02B06B02A00A1C8A6 /* SignUpViewModel.swift in Sources */,
 				398D2E9F2B0D543B00990867 /* ProfileView.swift in Sources */,
+				8817BCB42B1514B200442FC8 /* AudioProc.swift in Sources */,
 				E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AudioYikYak/Preview Content\"";
+				DEVELOPMENT_TEAM = 95PH4F2KX6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
@@ -579,6 +617,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AudioYikYak/Preview Content\"";
+				DEVELOPMENT_TEAM = 95PH4F2KX6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
@@ -736,6 +775,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8817BCB52B151AC000442FC8 /* XCRemoteSwiftPackageReference "DSWaveformImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmrschmidt/DSWaveformImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.2.1;
+			};
+		};
 		E1E20E8F2AFD6D1400445F8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
