@@ -22,17 +22,26 @@ struct StartView: View {
         }
         else {
             VStack(spacing: 40) {
+                Spacer()
                 SLButton(title: "Login", imageName: "rectangle.portrait.and.arrow.forward", isShowingModal: $isShowingLoginView)
                 
                 SLButton(title: "Sign Up", imageName: "arrow.forward", isShowingModal: $isShowingSignUpView)
+                Spacer()
             }
-            
             .sheet(isPresented: $isShowingLoginView) {
                 LoginView(username: $username, password: $password, viewModel: .init(), isShowingLoginView: $isShowingLoginView, isLoggedIn: $isLoggedIn)
             }
             .sheet(isPresented: $isShowingSignUpView) {
                 SignUpView(isShowingSignUpView: $isShowingSignUpView, username: $username, password: $password, viewModel: .init(), isLoggedIn: $isLoggedIn)
             }
+            .frame(
+                  minWidth: 0,
+                  maxWidth: .infinity,
+                  minHeight: 0,
+                  maxHeight: .infinity,
+                  alignment: .center
+                )
+            .background(UIValues.customBackground)
         }
     }
     

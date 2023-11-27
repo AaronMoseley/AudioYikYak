@@ -17,7 +17,6 @@ struct LoginView: View {
     
     
     var body: some View {
-        
         VStack {
             XDismissButton(isShowingModal: $isShowingLoginView)
             Spacer()
@@ -64,8 +63,6 @@ struct LoginView: View {
         .onChange(of: viewModel.isLoggedIn) { oldValue, newValue in
             isLoggedIn = newValue
         }
-        
-        
     }
     
     
