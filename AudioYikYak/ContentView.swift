@@ -9,146 +9,45 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    /*@State private var usernameIn = ""
-    @State private var passwordIn = ""
-    
-    @State private var usernameList = ""
-    @State private var correctPassword = ""
-    
-    
-    var body: some View {
-        VStack {
-            TextField("Username: ", text: $usernameIn)
-            TextField("Password: ", text: $passwordIn)
-            
-            Button(action: {
-                testAddUser()
-            }, label: {
-                Text("Add User")
-                    .fontWeight(.heavy)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(15)
-            })
-            
-            Button(action: {
-                Task { await testGetUsernames() }
-            }, label: {
-                Text("List All Usernames")
-                    .fontWeight(.heavy)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(15)
-            })
-            Text("Usernames: \(usernameList)")
-            
-            Button(action: {
-                Task { await testCheckPassword() }
-            }, label: {
-                Text("Check Password")
-                    .fontWeight(.heavy)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(15)
-            })
-            
-            Text("Correct Password: \(correctPassword)")
-        }
-        .padding()
-    }
-    
-    func testAddUser () {
-        addUser(username: self.usernameIn, password: self.passwordIn, bio: "Another test bio")
-        
-        self.usernameIn = ""
-        self.passwordIn = ""
-    }
-    
-    func testGetUsernames () async {
-        usernameList = ""
-        
-        let users = await getUsers()
-        
-        for user in users {
-            usernameList += user + " "
-        }
-    }
-    
-    func testCheckPassword() async {
-        let accountExists = await checkIfUsernameExists(username: self.usernameIn)
-        
-        if !accountExists {
-            self.correctPassword = "Account does not exist"
-        } else {
-            let result = await checkPassword(username: self.usernameIn, inputPassword: self.passwordIn)
-            self.correctPassword = String(result)
-        }
-    }*/
-    
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @ObservedObject var audioRecorder: AudioRecorder
+    @ObservedObject var audioPlayer: AudioPlayer
     @State private var showProfile = false
-
+    @State private var showList = false
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        NavigationView {
+            VStack {
+                
+                if (showList) {
+                    withAnimation{
+                        RecordingsList(audioRecorder: audioRecorder)
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .background(
+                
+                AudioRecordView(audioRecorder: audioRecorder)
+            }.background(
                 NavigationLink(destination: ProfileView(user: .constant(mockUser)), isActive: $showProfile) {
                     EmptyView()
                 }
             )
+            .onAppear {
+                showList = true
+            }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-                ToolbarItem {
-                    Button {
+                    Button(action: {
                         showProfile = true
-                    } label: {
-                        Text("Profile")
+                    }) {
+                        Image(systemName: "person.crop.circle")
                     }
                 }
             }
-        } detail: {
-            Text("Select an item")
+            .navigationBarTitle("For you", displayMode: .large)
         }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
+        
     }
 }
 
 #Preview {
-    //ContentView()
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+    ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer())
 }

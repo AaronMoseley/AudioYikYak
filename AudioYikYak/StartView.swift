@@ -18,7 +18,7 @@ struct StartView: View {
 
     var body: some View {
         if (isLoggedIn) {
-            ContentView()
+            ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer())
         }
         else {
             VStack(spacing: 40) {

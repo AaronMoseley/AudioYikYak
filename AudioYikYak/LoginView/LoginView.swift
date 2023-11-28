@@ -11,7 +11,7 @@ struct LoginView: View {
     
     @Binding var username: String
     @Binding var password: String
-    @ObservedObject var viewModel: LoginViewModel
+    @StateObject var viewModel: LoginViewModel
     @Binding var isShowingLoginView: Bool
     @Binding var isLoggedIn: Bool
     
@@ -63,6 +63,8 @@ struct LoginView: View {
         .onChange(of: viewModel.isLoggedIn) { oldValue, newValue in
             isLoggedIn = newValue
         }
+        .environment(\.colorScheme, .light)
+
     }
     
     
