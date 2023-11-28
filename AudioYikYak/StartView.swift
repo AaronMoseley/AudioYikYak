@@ -23,7 +23,8 @@ struct StartView: View {
         else {
             VStack(spacing: 40) {
                 Spacer()
-                SLButton(title: "Login", imageName: "rectangle.portrait.and.arrow.forward", isShowingModal: $isShowingLoginView)
+                Text("rekord").font(Font.system(size:40, design: .monospaced))
+                SLButton(title: "  Login  ", imageName: "rectangle.portrait.and.arrow.forward", isShowingModal: $isShowingLoginView)
                 
                 SLButton(title: "Sign Up", imageName: "arrow.forward", isShowingModal: $isShowingSignUpView)
                 Spacer()
