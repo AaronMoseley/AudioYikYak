@@ -23,8 +23,6 @@ struct ProfileView: View {
             
             
             Text(user.username)
-            
-            
             Text(user.bio)
             
             Button {

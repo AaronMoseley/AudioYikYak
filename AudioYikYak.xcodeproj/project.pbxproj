@@ -17,12 +17,14 @@
 		8817BCAD2B15108800442FC8 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCAC2B15108800442FC8 /* AudioPlayer.swift */; };
 		8817BCAF2B15110800442FC8 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCAE2B15110800442FC8 /* Recording.swift */; };
 		8817BCB22B15130400442FC8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCB12B15130400442FC8 /* Helper.swift */; };
-		8817BCB42B1514B200442FC8 /* AudioProc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCB32B1514B200442FC8 /* AudioProc.swift */; };
 		8817BCB82B151B9C00442FC8 /* RecordingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCB72B151B9C00442FC8 /* RecordingsList.swift */; };
+		8817BCBC2B15BB2900442FC8 /* DSWaveformImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8817BCBB2B15BB2900442FC8 /* DSWaveformImage */; };
+		8817BCBE2B15BB2900442FC8 /* DSWaveformImageViews in Frameworks */ = {isa = PBXBuildFile; productRef = 8817BCBD2B15BB2900442FC8 /* DSWaveformImageViews */; };
+		8817BCC02B15CAF700442FC8 /* AudioRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCBF2B15CAF700442FC8 /* AudioRecordView.swift */; };
+		8817BCC22B15CB1F00442FC8 /* AudioPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCC12B15CB1F00442FC8 /* AudioPlayView.swift */; };
 		E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377D2AFF0ACA00CA0D86 /* StartView.swift */; };
 		E14B37872AFF0C2F00CA0D86 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */; };
 		E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */; };
-		E14B378C2AFF13ED00CA0D86 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B37892AFF13ED00CA0D86 /* Item.swift */; };
 		E14B378D2AFF13ED00CA0D86 /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B378A2AFF13ED00CA0D86 /* XDismissButton.swift */; };
 		E14B378E2AFF13ED00CA0D86 /* SLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B378B2AFF13ED00CA0D86 /* SLButton.swift */; };
 		E14B37902B0F02B800CA0D86 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E14B378F2B0F02B800CA0D86 /* FirebaseStorage */; };
@@ -69,12 +71,12 @@
 		8817BCAC2B15108800442FC8 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		8817BCAE2B15110800442FC8 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		8817BCB12B15130400442FC8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		8817BCB32B1514B200442FC8 /* AudioProc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioProc.swift; sourceTree = "<group>"; };
 		8817BCB72B151B9C00442FC8 /* RecordingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsList.swift; sourceTree = "<group>"; };
+		8817BCBF2B15CAF700442FC8 /* AudioRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordView.swift; sourceTree = "<group>"; };
+		8817BCC12B15CB1F00442FC8 /* AudioPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayView.swift; sourceTree = "<group>"; };
 		E14B377D2AFF0ACA00CA0D86 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		E14B37892AFF13ED00CA0D86 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E14B378A2AFF13ED00CA0D86 /* XDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
 		E14B378B2AFF13ED00CA0D86 /* SLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLButton.swift; sourceTree = "<group>"; };
 		E1E20E5F2AFD6BDA00445F8E /* AudioYikYak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioYikYak.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +103,9 @@
 				E1E20E912AFD6D1400445F8E /* FirebaseFirestore in Frameworks */,
 				E14B37902B0F02B800CA0D86 /* FirebaseStorage in Frameworks */,
 				E1E20E932AFD6D1400445F8E /* FirebaseFirestoreCombine-Community in Frameworks */,
+				8817BCBE2B15BB2900442FC8 /* DSWaveformImageViews in Frameworks */,
 				E1E20E952AFD6D1400445F8E /* FirebaseFirestoreSwift in Frameworks */,
+				8817BCBC2B15BB2900442FC8 /* DSWaveformImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				E1E20E992AFD7B2700445F8E /* User.swift */,
-				E14B37892AFF13ED00CA0D86 /* Item.swift */,
 				8817BCAE2B15110800442FC8 /* Recording.swift */,
 			);
 			path = Models;
@@ -186,6 +189,31 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		8817BCB92B15B6A400442FC8 /* AudioProcessing */ = {
+			isa = PBXGroup;
+			children = (
+				8817BCAC2B15108800442FC8 /* AudioPlayer.swift */,
+				8817BCAA2B15106D00442FC8 /* AudioRecorder.swift */,
+			);
+			path = AudioProcessing;
+			sourceTree = "<group>";
+		};
+		8817BCBA2B15BB2900442FC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8817BCC32B15CB3B00442FC8 /* AudioUI */ = {
+			isa = PBXGroup;
+			children = (
+				8817BCC12B15CB1F00442FC8 /* AudioPlayView.swift */,
+				8817BCBF2B15CAF700442FC8 /* AudioRecordView.swift */,
+			);
+			path = AudioUI;
+			sourceTree = "<group>";
+		};
 		E1E20E562AFD6BDA00445F8E = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +221,7 @@
 				E1E20E732AFD6BDC00445F8E /* AudioYikYakTests */,
 				E1E20E7D2AFD6BDC00445F8E /* AudioYikYakUITests */,
 				E1E20E602AFD6BDA00445F8E /* Products */,
+				8817BCBA2B15BB2900442FC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,9 +238,8 @@
 		E1E20E612AFD6BDA00445F8E /* AudioYikYak */ = {
 			isa = PBXGroup;
 			children = (
+				8817BCB92B15B6A400442FC8 /* AudioProcessing */,
 				8817BCB02B1512EC00442FC8 /* Helper */,
-				8817BCAC2B15108800442FC8 /* AudioPlayer.swift */,
-				8817BCAA2B15106D00442FC8 /* AudioRecorder.swift */,
 				398D2EA42B0D59B000990867 /* EditProfileView */,
 				398D2E9D2B0D542C00990867 /* ProfileView */,
 				88165CED2B06AD7900A1C8A6 /* UIComponents */,
@@ -225,7 +253,7 @@
 				E1E20E662AFD6BDC00445F8E /* Assets.xcassets */,
 				E1E20E682AFD6BDC00445F8E /* AudioYikYak.entitlements */,
 				E1E20E692AFD6BDC00445F8E /* Preview Content */,
-				8817BCB32B1514B200442FC8 /* AudioProc.swift */,
+				8817BCC32B15CB3B00442FC8 /* AudioUI */,
 				8817BCB72B151B9C00442FC8 /* RecordingsList.swift */,
 			);
 			path = AudioYikYak;
@@ -277,6 +305,8 @@
 				E1E20E922AFD6D1400445F8E /* FirebaseFirestoreCombine-Community */,
 				E1E20E942AFD6D1400445F8E /* FirebaseFirestoreSwift */,
 				E14B378F2B0F02B800CA0D86 /* FirebaseStorage */,
+				8817BCBB2B15BB2900442FC8 /* DSWaveformImage */,
+				8817BCBD2B15BB2900442FC8 /* DSWaveformImageViews */,
 			);
 			productName = AudioYikYak;
 			productReference = E1E20E5F2AFD6BDA00445F8E /* AudioYikYak.app */;
@@ -397,11 +427,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8817BCC02B15CAF700442FC8 /* AudioRecordView.swift in Sources */,
 				8817BCAB2B15106D00442FC8 /* AudioRecorder.swift in Sources */,
 				398D2EA62B0D59BC00990867 /* EditProfileView.swift in Sources */,
 				E1E20E9A2AFD7B2700445F8E /* User.swift in Sources */,
 				E1E20E652AFD6BDA00445F8E /* ContentView.swift in Sources */,
 				88165CEB2B06A8D500A1C8A6 /* LoginViewModel.swift in Sources */,
+				8817BCC22B15CB1F00442FC8 /* AudioPlayView.swift in Sources */,
 				E14B378D2AFF13ED00CA0D86 /* XDismissButton.swift in Sources */,
 				E14B37872AFF0C2F00CA0D86 /* LoginView.swift in Sources */,
 				8817BCB22B15130400442FC8 /* Helper.swift in Sources */,
@@ -409,7 +441,6 @@
 				8817BCB82B151B9C00442FC8 /* RecordingsList.swift in Sources */,
 				8817BCA92B147D2800442FC8 /* Logger.swift in Sources */,
 				E1E20E632AFD6BDA00445F8E /* AudioYikYakApp.swift in Sources */,
-				E14B378C2AFF13ED00CA0D86 /* Item.swift in Sources */,
 				8817BCAD2B15108800442FC8 /* AudioPlayer.swift in Sources */,
 				E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */,
 				8817BCAF2B15110800442FC8 /* Recording.swift in Sources */,
@@ -417,7 +448,6 @@
 				E1E20E9C2AFD7D3500445F8E /* DatabaseInterface.swift in Sources */,
 				88165CF02B06B02A00A1C8A6 /* SignUpViewModel.swift in Sources */,
 				398D2E9F2B0D543B00990867 /* ProfileView.swift in Sources */,
-				8817BCB42B1514B200442FC8 /* AudioProc.swift in Sources */,
 				E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,6 +612,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We want to record your Audio";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -621,6 +652,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We want to record your Audio";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -697,6 +729,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 95PH4F2KX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
@@ -718,6 +751,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 95PH4F2KX6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
@@ -794,6 +828,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8817BCBB2B15BB2900442FC8 /* DSWaveformImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8817BCB52B151AC000442FC8 /* XCRemoteSwiftPackageReference "DSWaveformImage" */;
+			productName = DSWaveformImage;
+		};
+		8817BCBD2B15BB2900442FC8 /* DSWaveformImageViews */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8817BCB52B151AC000442FC8 /* XCRemoteSwiftPackageReference "DSWaveformImage" */;
+			productName = DSWaveformImageViews;
+		};
 		E14B378F2B0F02B800CA0D86 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E1E20E8F2AFD6D1400445F8E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

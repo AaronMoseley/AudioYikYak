@@ -11,14 +11,19 @@ import Combine
 import AVFoundation
 
 class AudioRecorder: NSObject, ObservableObject {
+    @Published var samples: [Float] = []
+    private var audioRecorder: AVAudioRecorder!
+    private var recordingSession: AVAudioSession!
+    private let sampleLimit = 1000
+    var timer: Timer?
     
     override init() {
         super.init()
+        setupRecordingSession()
         fetchRecording()
     }
     
     let objectWillChange = PassthroughSubject<AudioRecorder, Never>()
-    var audioRecorder: AVAudioRecorder!
     var recordings = [Recording]()
     var recording = false {
         didSet {
@@ -26,15 +31,18 @@ class AudioRecorder: NSObject, ObservableObject {
         }
     }
     
-    func startRecording(username: String) {
-        let recordingSession = AVAudioSession.sharedInstance()
-        
+    private func setupRecordingSession() {
+        recordingSession = AVAudioSession.sharedInstance()
         do {
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
         } catch {
-            print("Failed to set up recording session")
+            // Handle error in setting up recording session
+            print("Recording session setup failed: \(error)")
         }
+    }
+    
+    func startRecording(username: String) {
         
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let audioFilename = documentPath.appendingPathComponent(username + "-" + String(NSDate().timeIntervalSince1970) + ".m4a")
@@ -48,7 +56,9 @@ class AudioRecorder: NSObject, ObservableObject {
         
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+            audioRecorder.isMeteringEnabled = true
             audioRecorder.record()
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateRecordingProgress), userInfo: nil, repeats: true)
             recording = true
         } catch {
             print("Could not start recording")
@@ -57,9 +67,21 @@ class AudioRecorder: NSObject, ObservableObject {
     
     func stopRecording() {
         audioRecorder.stop()
+        timer?.invalidate()
         recording = false
-        
         fetchRecording()
+        samples.removeAll()
+    }
+    
+    @objc func updateRecordingProgress() {
+        audioRecorder.updateMeters()
+        let linear = 1 - pow(10, audioRecorder.averagePower(forChannel: 0) / 20)
+        DispatchQueue.main.async {
+            if self.samples.count >= self.sampleLimit {
+                self.samples.removeFirst()
+            }
+            self.samples += [linear, linear, linear, linear, linear, linear, linear, linear, linear]
+        }
     }
     
     func fetchRecording() {
@@ -74,7 +96,6 @@ class AudioRecorder: NSObject, ObservableObject {
         }
         
         recordings.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedAscending})
-        
         objectWillChange.send(self)
     }
     
@@ -82,7 +103,7 @@ class AudioRecorder: NSObject, ObservableObject {
         for url in urlsToDelete {
             print(url)
             do {
-               try FileManager.default.removeItem(at: url)
+                try FileManager.default.removeItem(at: url)
             } catch {
                 print("File could not be deleted!")
             }

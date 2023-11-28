@@ -13,11 +13,10 @@ struct RecordingsList: View {
     @ObservedObject var audioRecorder: AudioRecorder
     
     var body: some View {
-        List {
+        ScrollView {
             ForEach(audioRecorder.recordings, id: \.createdAt) { recording in
-                RecordingRow(audioURL: recording.fileURL)
+                RecordingRow(audioURL: recording.fileURL).padding(EdgeInsets(top: 5, leading: 17.5, bottom: 20, trailing: 17.5))
             }
-        .onDelete(perform: delete)
         }
     }
     
@@ -31,31 +30,17 @@ struct RecordingsList: View {
 }
 
 struct RecordingRow: View {
-    
     var audioURL: URL
-    
     @ObservedObject var audioPlayer = AudioPlayer()
     
     
     var body: some View {
-        HStack {
-            Text("\(audioURL.lastPathComponent)")
-            Spacer()
-            if audioPlayer.isPlaying == false {
-                Button(action: {
-                    self.audioPlayer.startPlayback(audio: self.audioURL)
-                }) {
-                    Image(systemName: "play.circle")
-                        .imageScale(.large)
-                }
-            } else {
-                Button(action: {
-                    self.audioPlayer.stopPlayback()
-                }) {
-                    Image(systemName: "stop.fill")
-                        .imageScale(.large)
-                }
-            }
+        VStack {
+            Text("Seun").font(Font.custom("Inter", size: 11))
+                .foregroundColor(.black)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+            AudioPlayView(audioURL: audioURL).background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                .cornerRadius(7.5)
         }
     }
 }
