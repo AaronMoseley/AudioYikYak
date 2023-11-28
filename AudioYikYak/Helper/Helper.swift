@@ -15,3 +15,8 @@ func getFileDate(for file: URL) -> Date {
         return Date()
     }
 }
+
+func doesFileExist(at url: URL) -> Bool {
+    let fileManager = FileManager.default
+    return fileManager.fileExists(atPath: url.path)
+}

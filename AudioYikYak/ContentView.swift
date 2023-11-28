@@ -12,23 +12,33 @@ struct ContentView: View {
     @ObservedObject var audioRecorder: AudioRecorder
     @ObservedObject var audioPlayer: AudioPlayer
     @State private var showProfile = false
+    @State private var showList = false
     
     var body: some View {
         NavigationView {
             VStack {
-                RecordingsList(audioRecorder: audioRecorder)
+                
+                if (showList) {
+                    withAnimation{
+                        RecordingsList(audioRecorder: audioRecorder)
+                    }
+                }
+                
                 AudioRecordView(audioRecorder: audioRecorder)
             }.background(
                 NavigationLink(destination: ProfileView(user: .constant(mockUser)), isActive: $showProfile) {
                     EmptyView()
                 }
             )
+            .onAppear {
+                showList = true
+            }
             .toolbar {
                 ToolbarItem {
-                    Button {
+                    Button(action: {
                         showProfile = true
-                    } label: {
-                        Text("Profile")
+                    }) {
+                        Image(systemName: "person.crop.circle")
                     }
                 }
             }

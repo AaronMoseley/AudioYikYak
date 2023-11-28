@@ -29,7 +29,7 @@ struct AudioRecordView: View {
                 configuration: liveConfiguration,
                 shouldDrawSilencePadding: true
             ).padding(0)
-                .frame(height: 100)
+                .frame(height: 150)
                 .onReceive(audioRecorder.$samples) { samples in
                     audioSamples = samples
                 }

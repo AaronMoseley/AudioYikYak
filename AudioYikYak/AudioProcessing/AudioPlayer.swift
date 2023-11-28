@@ -12,6 +12,8 @@ import AVFoundation
 
 class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
+    @Published var progress: Float = 1.0
+    
     let objectWillChange = PassthroughSubject<AudioPlayer, Never>()
     var isPlaying = false {
         didSet {
@@ -20,6 +22,8 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
     var audioPlayer: AVAudioPlayer!
+    var progressUpdateTimer: Timer?
+    
     func startPlayback(audio: URL) {
         let playbackSession = AVAudioSession.sharedInstance()
         
@@ -34,6 +38,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             audioPlayer.delegate = self
             audioPlayer.play()
             isPlaying = true
+            startProgressTimer()
         } catch {
             print("Playback failed.")
         }
@@ -42,8 +47,24 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     func stopPlayback() {
         audioPlayer.stop()
         isPlaying = false
+        progressUpdateTimer?.invalidate()
     }
     
+    private func startProgressTimer() {
+        progressUpdateTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.updateProgress()
+            }
+        }
+    }
+    
+    func updateProgress() {
+        if let player = audioPlayer, player.isPlaying {
+            self.progress = Float(player.currentTime / player.duration)
+        } else {
+            self.progress = 0
+        }
+    }
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if flag {
             isPlaying = false
