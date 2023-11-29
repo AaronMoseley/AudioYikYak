@@ -17,7 +17,7 @@ struct StartView: View {
 
     var body: some View {
         if (isLoggedIn) {
-            ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer(), user: $currUser)
+            ContentView(newUser: $currUser)
         }
         else {
             VStack(spacing: 40) {
@@ -42,6 +42,65 @@ struct StartView: View {
                   alignment: .center
                 )
             .background(UIValues.customBackground)
+            .task {
+                delete()
+                await downloadFiles()
+            }
+        }
+    }
+    
+    func downloadFiles() async {
+        let numFiles = await getNumberOfAudioFiles()
+        if numFiles <= 0 {
+            return
+        }
+        
+        let finished = { (input: Bool) in
+            if input {
+                print("File downloaded successfully")
+                
+            } else {
+                print("File not downloaded")
+            }
+        }
+        
+        var index = 0
+        let currentTimeStamp = NSDate().timeIntervalSince1970
+        var fileName = await getAudioFileName(index: index)
+        let timeLimit: Double = 100000
+        var fileTimeStamp = getTimeStamp(fileName: fileName)
+        
+        while currentTimeStamp - fileTimeStamp <= timeLimit && fileTimeStamp > 0  && index < numFiles {
+            await downloadAudioFile(completion: finished, index: index, outputDirectory: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
+            
+            index += 1
+            
+            if index >= numFiles {
+                break
+            }
+            
+            fileName = await getAudioFileName(index: index)
+            fileTimeStamp = getTimeStamp(fileName: fileName)
+        }
+    }
+    
+    func getTimeStamp(fileName: String) -> Double {
+        var stringStamp = fileName.components(separatedBy: "-")[1]
+        stringStamp = stringStamp.components(separatedBy: ".")[0]
+        return Double(stringStamp) ?? -1
+    }
+    
+    func delete() {
+        do {
+            for audioFile in try FileManager.default.contentsOfDirectory(atPath: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].absoluteString) {
+                do {
+                    try FileManager.default.removeItem(at: URL(fileURLWithPath: audioFile))
+                } catch {
+                    print("File could not be deleted!")
+                }
+            }
+        } catch {
+            return
         }
     }
     

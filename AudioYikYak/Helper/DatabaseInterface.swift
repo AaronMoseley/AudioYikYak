@@ -52,7 +52,39 @@ func uploadAudioFile(username: String, currentFileName: URL) async {
     }
 }
 
-func downloadAudioFile(completion: @escaping (Bool) -> Void, index: Int, outputFileName: String) async -> String {
+func getAudioFileName(index: Int) async -> String {
+    let storage = Storage.storage()
+    let storageRef = storage.reference()
+    
+    var fileName = ""
+    
+    do {
+        let fileNames = try await storageRef.listAll().items
+        if fileNames.count <= index {
+            return ""
+        } else {
+            fileName = fileNames[index].name
+        }
+    } catch {
+        return ""
+    }
+    
+    return fileName
+}
+
+func getNumberOfAudioFiles() async -> Int {
+    let storage = Storage.storage()
+    let storageRef = storage.reference()
+    
+    do {
+        let fileNames = try await storageRef.listAll().items
+        return fileNames.count
+    } catch {
+        return -1
+    }
+}
+
+func downloadAudioFile(completion: @escaping (Bool) -> Void, index: Int, outputDirectory: URL) async -> String {
     let storage = Storage.storage()
     let storageRef = storage.reference()
     
@@ -84,10 +116,10 @@ func downloadAudioFile(completion: @escaping (Bool) -> Void, index: Int, outputF
         return ""
     }
     
-    let localURL = URL(fileURLWithPath: outputFileName)
+    let localURL = outputDirectory.appendingPathComponent(fileName)
     
     let downloadTask = fileRef.write(toFile: localURL) { url, error in
-        if let error = error {
+        if error != nil {
             print("Error has occured while downloading file")
         }
     }
@@ -98,8 +130,29 @@ func downloadAudioFile(completion: @escaping (Bool) -> Void, index: Int, outputF
     }
     
     downloadTask.observe(.failure) { snapshot in
-        completion(false)
-        downloadTask.removeAllObservers()
+      guard let errorCode = (snapshot.error as? NSError)?.code else {
+        return
+      }
+      guard let error = StorageErrorCode(rawValue: errorCode) else {
+        return
+      }
+      switch (error) {
+      case .objectNotFound:
+        print("File does not exist")
+        break
+      case .unauthorized:
+        print("Unauthorized to access the file")
+        break
+      case .cancelled:
+        print("Download cancelled")
+        break
+      case .unknown:
+        print("Unknown error occured")
+        break
+      default:
+        print("Other error occured")
+        break
+      }
     }
     
     return username

@@ -14,6 +14,11 @@ class LoginViewModel: ObservableObject {
     @Published var shouldShowLoginView: Bool = true
     
     func checkCanLogIn(username: String, password: String) async -> Array<String> {
+        if username == "" || password == "" {
+            self.errorMessage = "Cannot have empty username or password"
+            return [String]()
+        }
+        
         let usernameResult = await checkIfUsernameExists(username: username)
         
         if !usernameResult {

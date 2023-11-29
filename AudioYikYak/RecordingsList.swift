@@ -18,14 +18,11 @@ struct RecordingsList: View {
                 RecordingRow(audioURL: recording.fileURL).padding(EdgeInsets(top: 5, leading: 17.5, bottom: 20, trailing: 17.5))
             }
         }
-    }
-    
-    func delete(at offsets: IndexSet) {
-        var urlsToDelete = [URL]()
-        for index in offsets {
-            urlsToDelete.append(audioRecorder.recordings[index].fileURL)
+         .task {
+            //delete()
+            //await downloadFiles()
+            //audioRecorder.fetchRecording()
         }
-        audioRecorder.deleteRecording(urlsToDelete: urlsToDelete)
     }
 }
 
@@ -36,7 +33,7 @@ struct RecordingRow: View {
     
     var body: some View {
         VStack {
-            Text("Seun").font(Font.custom("Inter", size: 11))
+            Text(audioURL.lastPathComponent.components(separatedBy: "-")[0]).font(Font.custom("Inter", size: 11))
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity, alignment: .trailing)
             AudioPlayView(audioURL: audioURL).background(Color(red: 0.93, green: 0.93, blue: 0.93))
@@ -45,8 +42,8 @@ struct RecordingRow: View {
     }
 }
 
-/*struct RecordingsList_Previews: PreviewProvider {
+struct RecordingsList_Previews: PreviewProvider {
     static var previews: some View {
         RecordingsList(audioRecorder: AudioRecorder())
     }
-}*/
+}

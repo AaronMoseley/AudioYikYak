@@ -45,10 +45,18 @@ struct ContentView: View {
             }
             .navigationBarTitle("For you", displayMode: .large)
         }
-        
+        .task {
+            self.audioRecorder.fetchRecording()
+        }
+    }
+    
+    init (newUser: Binding<User>) {
+        _user = newUser
+        audioRecorder = AudioRecorder()
+        audioPlayer = AudioPlayer()
     }
 }
 
-//#Preview {
-//    ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer(), user: .constant(mockUser))
-//}
+#Preview {
+    ContentView(newUser: .constant(mockUser))
+}

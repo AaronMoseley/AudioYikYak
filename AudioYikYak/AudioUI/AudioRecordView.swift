@@ -75,6 +75,6 @@ struct RecordingButton: View {
     }
 }
 
-//#Preview {
-//    AudioRecordView(audioRecorder: AudioRecorder(), user: .constant(mockUser))
-//}
+#Preview {
+    AudioRecordView(audioRecorder: AudioRecorder(), user: .constant(mockUser))
+}
