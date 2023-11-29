@@ -13,6 +13,7 @@ struct ContentView: View {
     @ObservedObject var audioPlayer: AudioPlayer
     @State private var showProfile = false
     @State private var showList = false
+    @Binding var user: User
     
     var body: some View {
         NavigationView {
@@ -26,7 +27,7 @@ struct ContentView: View {
                 
                 AudioRecordView(audioRecorder: audioRecorder)
             }.background(
-                NavigationLink(destination: ProfileView(user: .constant(mockUser)), isActive: $showProfile) {
+                NavigationLink(destination: ProfileView(user: user), isActive: $showProfile) {
                     EmptyView()
                 }
             )
@@ -49,5 +50,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer())
+    ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer(), user: .constant(mockUser))
 }

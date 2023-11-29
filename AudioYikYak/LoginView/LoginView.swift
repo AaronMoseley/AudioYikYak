@@ -9,12 +9,13 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @Binding var username: String
-    @Binding var password: String
+    @State var user: User
     @StateObject var viewModel: LoginViewModel
+    @State var username: String = ""
+    @State var password: String = ""
     @Binding var isShowingLoginView: Bool
     @Binding var isLoggedIn: Bool
-    
+    var startView: StartView
     
     var body: some View {
         VStack {
@@ -43,7 +44,7 @@ struct LoginView: View {
             .padding()
             
             Button {
-                Task { await viewModel.checkCanLogIn(username: username, password: password) }
+                Task { await login() }
             } label: {
                 Label("Login", systemImage: "rectangle.portrait.and.arrow.forward")
             }
@@ -67,10 +68,20 @@ struct LoginView: View {
 
     }
     
+    func login() async {
+        let userInfo = await viewModel.checkCanLogIn(username: self.username, password: self.password)
+        
+        if !userInfo.isEmpty {
+            let newUser = User(username: self.username, password: self.password, bio: userInfo[2])
+            self.user = newUser
+            self.startView.currUser = self.user
+            print("updated user")
+        }
+    }
     
     struct LoginView_Previews: PreviewProvider {
         static var previews: some View {
-            LoginView(username: .constant(""), password: .constant(""), viewModel: .init(), isShowingLoginView: .constant(true), isLoggedIn: .constant(true))
+            LoginView(user: mockUser, viewModel: .init(), isShowingLoginView: .constant(true), isLoggedIn: .constant(true), startView: StartView(currUser: mockUser))
         }
     }
 }

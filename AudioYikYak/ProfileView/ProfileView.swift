@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ProfileView: View {
-    
-    @Binding var user: User
-    @State var isEditProfile = false
+    @State var user: User
+    @State var isEditProfile: Bool = false
     
     var body: some View {
         VStack(spacing: 30) {
@@ -41,12 +40,12 @@ struct ProfileView: View {
         .background(UIValues.customBackground)
 
         .sheet(isPresented: $isEditProfile) {
-            EditProfileView(isEditing: $isEditProfile)
+            EditProfileView(newUser: $user, editing: $isEditProfile)
         }
     }
 }
 
 #Preview {
-    ProfileView(user: .constant(mockUser))
+    ProfileView(user: mockUser)
 }
 

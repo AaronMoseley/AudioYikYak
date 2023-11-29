@@ -14,17 +14,18 @@ class SignUpViewModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
     @Published var errorMessage: String = ""
     
-    func signUp (username: String, password: String) async {
+    func signUp (username: String, password: String) async -> Bool {
         let usernameExists = await checkIfUsernameExists(username: username)
         
         if usernameExists {
             self.errorMessage = "User already exists"
-            return
+            return false
         }
         
-        addUser(username: username, password: password, bio: "")
+        addUser(username: username, password: password, bio: "Add a bio about yourself!")
         
         shouldShowSignUpView = false
         isLoggedIn = true
+        return true
     }
 }

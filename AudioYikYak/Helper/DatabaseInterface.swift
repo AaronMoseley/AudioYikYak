@@ -140,6 +140,20 @@ func checkPassword(username: String, inputPassword: String) async -> Bool
     }
 }
 
+func getBio(username: String) async -> String
+{
+    let db = Firestore.firestore()
+    do {
+        let doc = try await db.collection("users").document(username).getDocument()
+        let bio = doc["bio"]
+        
+        return bio as! String
+    } catch {
+        print("Error getting bio")
+        return ""
+    }
+}
+
 func checkIfUsernameExists(username: String) async -> Bool {
     let db = Firestore.firestore()
     
@@ -154,7 +168,7 @@ func checkIfUsernameExists(username: String) async -> Bool {
     }
 }
 
-func addUser(user: User)
+func changeUserData(user: User)
 {
     let db = Firestore.firestore()
     let userDB = db.collection("users")

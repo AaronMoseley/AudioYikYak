@@ -10,6 +10,8 @@ import SwiftUI
 struct EditProfileView: View {
     
     @Binding var isEditing: Bool
+    @Binding var user: User
+    @State private var newBio: String
     
     var body: some View {
         VStack {
@@ -17,16 +19,9 @@ struct EditProfileView: View {
             Spacer()
             VStack(spacing: 20) {
                 Text("Username")
-                TextField("Username", text: .constant(mockUser.username))
-                    .padding()
-                    .background(.white)
-                    .cornerRadius(UIValues.cornerRadius)
-                    .padding(EdgeInsets(top: 0,
-                                        leading: UIValues.sidePadding,
-                                        bottom: 0,
-                                        trailing: UIValues.sidePadding))
+                Text(user.username)
                 Text("Bio")
-                TextField("Bio", text: .constant(mockUser.bio))
+                TextField("Bio", text: $newBio)
                     .padding()
                     .background(.white)
                     .cornerRadius(UIValues.cornerRadius)
@@ -35,7 +30,15 @@ struct EditProfileView: View {
                                         bottom: 0,
                                         trailing: UIValues.sidePadding))
                 
-                SLButton(title: "Submit", imageName: "arrow.right", isShowingModal: $isEditing)
+                //SLButton(title: "Submit", imageName: "arrow.right", isShowingModal: $isEditing)
+                Button {
+                    Task { makeChanges() }
+                } label: {
+                    Label("Save Changes", systemImage: "arrow.forward")
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.blue)
+                .controlSize(.large)
             }
             Spacer()
         }
@@ -48,8 +51,20 @@ struct EditProfileView: View {
             )
         .background(UIValues.customBackground)
     }
+    
+    init(newUser: Binding<User>, editing: Binding<Bool>) {
+        _newBio = State(initialValue: newUser.bio.wrappedValue)
+        _isEditing = editing
+        _user = newUser
+    }
+    
+    func makeChanges () {
+        self.isEditing = false
+        self.user.bio = self.newBio
+        changeUserData(user: self.user)
+    }
 }
 
 #Preview {
-    EditProfileView(isEditing: .constant(true))
+    EditProfileView(newUser: .constant(mockUser), editing: .constant(true))
 }

@@ -10,10 +10,12 @@ import SwiftUI
 struct SignUpView: View {
     
     @Binding var isShowingSignUpView: Bool
-    @Binding var username: String
-    @Binding var password: String
+    @State var user: User
+    @State var username: String = ""
+    @State var password: String = ""
     @StateObject var viewModel: SignUpViewModel
     @Binding var isLoggedIn: Bool
+    @State var startView: StartView
     
     var body: some View {
         VStack {
@@ -39,7 +41,7 @@ struct SignUpView: View {
                                         trailing: UIValues.sidePadding))
                 
                 Button {
-                    Task { await viewModel.signUp(username: username, password: password) }
+                    Task { await signUp() }
                 } label: {
                     Label("Sign Up", systemImage: "arrow.forward")
                 }
@@ -63,5 +65,11 @@ struct SignUpView: View {
         
     }
     
-    
+    func signUp () async {
+        if await viewModel.signUp(username: self.username, password: self.password) {
+            var newUser = User(username: self.username, password: self.password, bio: "Add a bio about yourself!")
+            self.user = newUser
+            self.startView.currUser = self.user
+        }
+    }
 }

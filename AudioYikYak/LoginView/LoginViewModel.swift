@@ -13,21 +13,28 @@ class LoginViewModel: ObservableObject {
     @Published var errorMessage: String = ""
     @Published var shouldShowLoginView: Bool = true
     
-    func checkCanLogIn(username: String, password: String) async {
+    func checkCanLogIn(username: String, password: String) async -> Array<String> {
         let usernameResult = await checkIfUsernameExists(username: username)
         
         if !usernameResult {
             self.errorMessage = "User does not exist"
-            return
+            return [String]()
         }
         
         let passwordResult = await checkPassword(username: username, inputPassword: password)
         
         if !passwordResult {
             self.errorMessage = "Incorrect password"
+            return [String]()
         } else {
             self.shouldShowLoginView = false
             self.isLoggedIn = true
+            
+            var result = [String]()
+            result.append(username)
+            result.append(password)
+            result.append(await getBio(username: username))
+            return result
         }
     }
 }

@@ -23,7 +23,7 @@ struct AudioYikYakApp: App {
     
     var body: some Scene {
         WindowGroup {
-            StartView().preferredColorScheme(.light)
+            StartView(currUser: User(username: "", password: "", bio: "")).preferredColorScheme(.light)
         }
     }
 }

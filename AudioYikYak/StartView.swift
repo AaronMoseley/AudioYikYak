@@ -11,14 +11,13 @@ struct StartView: View {
     
     @State private var isShowingLoginView = false
     @State private var isShowingSignUpView = false
-    @State private var username: String = ""
-    @State private var password: String = ""
     @State private var isLoggedIn: Bool = false
+    @State public var currUser: User
     
 
     var body: some View {
         if (isLoggedIn) {
-            ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer())
+            ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer(), user: $currUser)
         }
         else {
             VStack(spacing: 40) {
@@ -30,10 +29,10 @@ struct StartView: View {
                 Spacer()
             }
             .sheet(isPresented: $isShowingLoginView) {
-                LoginView(username: $username, password: $password, viewModel: .init(), isShowingLoginView: $isShowingLoginView, isLoggedIn: $isLoggedIn)
+                LoginView(user: currUser, viewModel: .init(), isShowingLoginView: $isShowingLoginView, isLoggedIn: $isLoggedIn, startView: self)
             }
             .sheet(isPresented: $isShowingSignUpView) {
-                SignUpView(isShowingSignUpView: $isShowingSignUpView, username: $username, password: $password, viewModel: .init(), isLoggedIn: $isLoggedIn)
+                SignUpView(isShowingSignUpView: $isShowingSignUpView, user: currUser, viewModel: .init(), isLoggedIn: $isLoggedIn, startView: self)
             }
             .frame(
                   minWidth: 0,
@@ -62,6 +61,6 @@ struct StartView: View {
 }
 
 #Preview {
-    StartView()
+    StartView(currUser: mockUser)
 }
 
