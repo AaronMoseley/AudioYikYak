@@ -50,7 +50,7 @@ class SignUpViewModel: ObservableObject {
     
     func createUser() async -> Bool {
         if let authenticationService = authenticationService {
-            return await authenticationService.createUser(withEmail: email, password: password)
+            return await authenticationService.createUser(username: username, withEmail: email, password: password)
         }
         else {
             return false

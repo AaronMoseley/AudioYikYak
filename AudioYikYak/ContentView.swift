@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var showProfile = false
     @State private var showList = false
     @Binding var isLoggedIn: Bool
+    @Binding var currUser: CustomUser
     
     var body: some View {
         NavigationView {
@@ -29,7 +30,7 @@ struct ContentView: View {
                 AudioRecordView(audioRecorder: audioRecorder)
             }
             .background(
-                NavigationLink(destination: ProfileView(), isActive: $showProfile) {
+                NavigationLink(destination: ProfileView(currUser: $currUser), isActive: $showProfile) {
                     EmptyView()
                 }
             )

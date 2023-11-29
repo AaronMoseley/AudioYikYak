@@ -16,11 +16,11 @@ struct StartView: View {
     @State private var isShowingLoginView = false
     @State private var isShowingSignUpView = false
     @State private var isLoggedIn: Bool = false
+    @State private var currUser: CustomUser = CustomUser(username: "", bio: "")
     
-
     var body: some View {
         if (isLoggedIn) {
-            ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer(), isLoggedIn: $isLoggedIn)
+            ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer(), isLoggedIn: $isLoggedIn, currUser: $currUser)
         }
         else {
             content
@@ -43,34 +43,21 @@ struct StartView: View {
             SignUpView(isLoggedIn: $isLoggedIn)
         }
         .frame(
-              minWidth: 0,
-              maxWidth: .infinity,
-              minHeight: 0,
-              maxHeight: .infinity,
-              alignment: .center
+            minWidth: 0,
+            maxWidth: .infinity,
+            minHeight: 0,
+            maxHeight: .infinity,
+            alignment: .center
         )
         .background(UIValues.customBackground)
-        .onAppear {
-          viewModel.connect(authenticationService: authenticationService)
+        .task {
+            print("getting the current user")
+            viewModel.connect(authenticationService: authenticationService)
+            if let currentUser = Auth.auth().currentUser {
+                currUser = await viewModel.getCurrUser(user: currentUser)
+                isLoggedIn = true
+            }
         }
     }
-    
-    /*func testDownloadFile() async {
-        let finished = { (input: Bool) in
-            print(input)
-        }
-
-        let username = await downloadAudioFile(completion: finished, index: 0, outputFileName: "/Users/aaronmoseley/Desktop/AudioYikYak/testAudio.mp3")
-        
-        print(username)
-    }
-    
-    func testUploadFile() async {
-        await uploadAudioFile(username: "testUsername", currentFileName: "/Users/aaronmoseley/Desktop/AudioYikYak/testAudio.mp3")
-    }*/
-}
-
-#Preview {
-    StartView()
 }
 

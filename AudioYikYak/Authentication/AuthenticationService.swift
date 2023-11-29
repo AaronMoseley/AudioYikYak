@@ -44,17 +44,23 @@ class AuthenticationService: ObservableObject {
     }
     
     @MainActor
-    func createUser(withEmail email: String, password: String) async -> Bool {
+    func createUser(username: String, withEmail email: String, password: String) async -> Bool {
         authenticationState = .authenticating
         do {
             try await Auth.auth().createUser(withEmail: email, password: password)
-            return true
+            let currentUser = Auth.auth().currentUser
+            if let currentUser = Auth.auth().currentUser {
+                addUser(user: currentUser, username: username)
+                return true
+            }
+            else {
+                return false
+            }
         } catch {
             await MainActor.run {
                 errorMessage = error.localizedDescription
                 authenticationState = .unauthenticated
             }
-            print(error)
             return false
         }
     }

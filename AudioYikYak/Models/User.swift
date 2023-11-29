@@ -5,14 +5,12 @@
 //  Created by Aaron Moseley on 11/9/23.
 //
 
-//import Foundation
-//
-//struct User {
-//    var profilePicture = "profile-image"
-//    var username: String
-//    var password: String
-//    var bio: String
-//}
-//
-//
-//let mockUser = User(username: "myusername", password: "mypassword", bio: "this is my bio")
+import Foundation
+
+struct CustomUser {
+    var id = UUID()
+    var username: String
+    var profilePicture = "profile-image"
+    var bio: String
+}
+
