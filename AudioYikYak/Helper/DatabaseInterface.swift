@@ -10,19 +10,15 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseStorage
 
-func uploadAudioFile(username: String, currentFileName: String) async {
+func uploadAudioFile(username: String, currentFileName: URL) async {
     let storage = Storage.storage()
     let storageRef = storage.reference()
     let fileRef = storageRef.child(username + "-" + String(NSDate().timeIntervalSince1970) + ".m4a")
     
-    let localFile = URL(fileURLWithPath: currentFileName)
-    
     let metadata = StorageMetadata()
     metadata.customMetadata = ["username": username]
     
-    print(localFile.absoluteString)
-    
-    let uploadTask = fileRef.putFile(from: localFile, metadata: metadata) { metadata, error in
+    let uploadTask = fileRef.putFile(from: currentFileName, metadata: metadata) { metadata, error in
         guard metadata == metadata else {
             print("Error uploading file")
             return

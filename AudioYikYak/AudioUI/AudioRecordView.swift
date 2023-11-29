@@ -12,8 +12,8 @@ import DSWaveformImage
 import DSWaveformImageViews
 
 struct AudioRecordView: View {
-    @StateObject var audioRecorder: AudioRecorder
-    
+    @ObservedObject var audioRecorder: AudioRecorder
+    @Binding var user: User
     @State private var isRecording = false
     @State private var liveConfiguration: Waveform.Configuration = Waveform.Configuration(
         style: .striped(.init(color: .white, width: 3, spacing: 3))
@@ -38,9 +38,9 @@ struct AudioRecordView: View {
             VStack {
                 RecordingButton(isRecording: $isRecording) {
                     if isRecording {
-                        audioRecorder.stopRecording()
+                        audioRecorder.stopRecording(username: user.username)
                     } else {
-                        audioRecorder.startRecording(username: "Seun")
+                        audioRecorder.startRecording(username: user.username)
                     }
                     isRecording.toggle()
                 }
@@ -75,6 +75,6 @@ struct RecordingButton: View {
     }
 }
 
-#Preview {
-    AudioRecordView(audioRecorder: .init())
-}
+//#Preview {
+//    AudioRecordView(audioRecorder: AudioRecorder(), user: .constant(mockUser))
+//}

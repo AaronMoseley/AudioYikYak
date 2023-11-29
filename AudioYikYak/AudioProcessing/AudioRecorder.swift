@@ -15,7 +15,8 @@ class AudioRecorder: NSObject, ObservableObject {
     private var audioRecorder: AVAudioRecorder!
     private var recordingSession: AVAudioSession!
     private let sampleLimit = 1000
-    var timer: Timer?
+    private var timer: Timer?
+    private var currFileName: URL = URL(fileURLWithPath: "")
     
     override init() {
         super.init()
@@ -43,9 +44,9 @@ class AudioRecorder: NSObject, ObservableObject {
     }
     
     func startRecording(username: String) {
-        
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let audioFilename = documentPath.appendingPathComponent(username + "-" + String(NSDate().timeIntervalSince1970) + ".m4a")
+        currFileName = audioFilename
         
         let settings: [String: Any] = [
             AVFormatIDKey : Int(kAudioFormatMPEG4AAC),
@@ -65,12 +66,15 @@ class AudioRecorder: NSObject, ObservableObject {
         }
     }
     
-    func stopRecording() {
+    func stopRecording(username: String) {
         audioRecorder.stop()
         timer?.invalidate()
         recording = false
         fetchRecording()
         samples.removeAll()
+        
+        Task { await uploadAudioFile(username: username, currentFileName: currFileName) }
+        currFileName = URL(fileURLWithPath: "")
     }
     
     @objc func updateRecordingProgress() {
@@ -95,7 +99,7 @@ class AudioRecorder: NSObject, ObservableObject {
             recordings.append(recording)
         }
         
-        recordings.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedAscending})
+        recordings.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending})
         objectWillChange.send(self)
     }
     

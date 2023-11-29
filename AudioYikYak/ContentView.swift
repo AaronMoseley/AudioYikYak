@@ -25,7 +25,7 @@ struct ContentView: View {
                     }
                 }
                 
-                AudioRecordView(audioRecorder: audioRecorder)
+                AudioRecordView(audioRecorder: audioRecorder, user: $user)
             }.background(
                 NavigationLink(destination: ProfileView(user: user), isActive: $showProfile) {
                     EmptyView()
@@ -49,6 +49,6 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer(), user: .constant(mockUser))
-}
+//#Preview {
+//    ContentView(audioRecorder: AudioRecorder(), audioPlayer: AudioPlayer(), user: .constant(mockUser))
+//}
