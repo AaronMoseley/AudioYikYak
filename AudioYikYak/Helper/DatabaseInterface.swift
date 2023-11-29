@@ -164,16 +164,16 @@ func checkIfUsernameExists(username: String) async -> Bool {
     }
 }
 
-func changeUserData(user: User)
-{
-    let db = Firestore.firestore()
-    let userDB = db.collection("users")
-    
-    userDB.document(user.username).setData([
-        "password": user.password,
-        "bio": user.bio
-    ])
-}
+//func changeUserData(user: User)
+//{
+//    let db = Firestore.firestore()
+//    let userDB = db.collection("users")
+//    
+//    userDB.document(user.username).setData([
+//        "password": user.password,
+//        "bio": user.bio
+//    ])
+//}
 
 func addUser(username: String, password: String, bio: String) {
     let db = Firestore.firestore()

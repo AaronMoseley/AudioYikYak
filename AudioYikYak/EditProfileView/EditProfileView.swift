@@ -10,7 +10,6 @@ import SwiftUI
 struct EditProfileView: View {
     
     @Binding var isEditing: Bool
-    @Binding var user: User
     @State private var newBio: String
     
     var body: some View {
@@ -19,7 +18,7 @@ struct EditProfileView: View {
             Spacer()
             VStack(spacing: 20) {
                 Text("Username")
-                Text(user.username)
+                Text("tmpusername")
                 Text("Bio")
                 TextField("Bio", text: $newBio)
                     .padding()
@@ -32,7 +31,7 @@ struct EditProfileView: View {
                 
                 //SLButton(title: "Submit", imageName: "arrow.right", isShowingModal: $isEditing)
                 Button {
-                    Task { makeChanges() }
+                    Task { /* makeChanges() */ }
                 } label: {
                     Label("Save Changes", systemImage: "arrow.forward")
                 }
@@ -52,19 +51,16 @@ struct EditProfileView: View {
         .background(UIValues.customBackground)
     }
     
-    init(newUser: Binding<User>, editing: Binding<Bool>) {
-        _newBio = State(initialValue: newUser.bio.wrappedValue)
-        _isEditing = editing
-        _user = newUser
-    }
-    
-    func makeChanges () {
-        self.isEditing = false
-        self.user.bio = self.newBio
-        changeUserData(user: self.user)
-    }
+//    init(newuser: binding<user>, editing: binding<bool>) {
+//        _newbio = state(initialvalue: newuser.bio.wrappedvalue)
+//        _isediting = editing
+//        _user = newuser
+//    }
+//    
+//    func makechanges () {
+//        self.isediting = false
+//        self.user.bio = self.newbio
+//        changeuserdata(user: self.user)
+//    }
 }
 
-#Preview {
-    EditProfileView(newUser: .constant(mockUser), editing: .constant(true))
-}

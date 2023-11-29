@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3968DD662B17048400A220D4 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3968DD652B17048400A220D4 /* AuthenticationService.swift */; };
+		397865372B1717DF0088FD06 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397865362B1717DF0088FD06 /* SignUpView.swift */; };
+		397865392B1718540088FD06 /* FocusableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397865382B1718540088FD06 /* FocusableField.swift */; };
 		398D2E9F2B0D543B00990867 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398D2E9E2B0D543B00990867 /* ProfileView.swift */; };
 		398D2EA62B0D59BC00990867 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398D2EA52B0D59BC00990867 /* EditProfileView.swift */; };
+		39B2B24D2B16F61A00A92A02 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 39B2B24C2B16F61A00A92A02 /* FirebaseAuth */; };
+		39D676B12B1710BA003F9687 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D676B02B1710B9003F9687 /* StartViewModel.swift */; };
 		88165CEB2B06A8D500A1C8A6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CEA2B06A8D500A1C8A6 /* LoginViewModel.swift */; };
 		88165CF02B06B02A00A1C8A6 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */; };
 		88165CF22B06BDDD00A1C8A6 /* UIValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88165CF12B06BDDD00A1C8A6 /* UIValues.swift */; };
@@ -24,7 +29,6 @@
 		8817BCC22B15CB1F00442FC8 /* AudioPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817BCC12B15CB1F00442FC8 /* AudioPlayView.swift */; };
 		E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377D2AFF0ACA00CA0D86 /* StartView.swift */; };
 		E14B37872AFF0C2F00CA0D86 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */; };
-		E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */; };
 		E14B378D2AFF13ED00CA0D86 /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B378A2AFF13ED00CA0D86 /* XDismissButton.swift */; };
 		E14B378E2AFF13ED00CA0D86 /* SLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B378B2AFF13ED00CA0D86 /* SLButton.swift */; };
 		E14B37902B0F02B800CA0D86 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E14B378F2B0F02B800CA0D86 /* FirebaseStorage */; };
@@ -61,8 +65,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3968DD652B17048400A220D4 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		397865362B1717DF0088FD06 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		397865382B1718540088FD06 /* FocusableField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusableField.swift; sourceTree = "<group>"; };
 		398D2E9E2B0D543B00990867 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		398D2EA52B0D59BC00990867 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		39D676B02B1710B9003F9687 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		88165CEA2B06A8D500A1C8A6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		88165CF12B06BDDD00A1C8A6 /* UIValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIValues.swift; sourceTree = "<group>"; };
@@ -76,7 +84,6 @@
 		8817BCC12B15CB1F00442FC8 /* AudioPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayView.swift; sourceTree = "<group>"; };
 		E14B377D2AFF0ACA00CA0D86 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		E14B377E2AFF0ACA00CA0D86 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E14B378A2AFF13ED00CA0D86 /* XDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
 		E14B378B2AFF13ED00CA0D86 /* SLButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLButton.swift; sourceTree = "<group>"; };
 		E1E20E5F2AFD6BDA00445F8E /* AudioYikYak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioYikYak.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +112,7 @@
 				E1E20E932AFD6D1400445F8E /* FirebaseFirestoreCombine-Community in Frameworks */,
 				8817BCBE2B15BB2900442FC8 /* DSWaveformImageViews in Frameworks */,
 				E1E20E952AFD6D1400445F8E /* FirebaseFirestoreSwift in Frameworks */,
+				39B2B24D2B16F61A00A92A02 /* FirebaseAuth in Frameworks */,
 				8817BCBC2B15BB2900442FC8 /* DSWaveformImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +134,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3978653A2B171ADA0088FD06 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				3968DD652B17048400A220D4 /* AuthenticationService.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		398D2E9D2B0D542C00990867 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +156,15 @@
 				398D2EA52B0D59BC00990867 /* EditProfileView.swift */,
 			);
 			path = EditProfileView;
+			sourceTree = "<group>";
+		};
+		39D676B22B1710CC003F9687 /* StartView */ = {
+			isa = PBXGroup;
+			children = (
+				E14B377D2AFF0ACA00CA0D86 /* StartView.swift */,
+				39D676B02B1710B9003F9687 /* StartViewModel.swift */,
+			);
+			path = StartView;
 			sourceTree = "<group>";
 		};
 		88165CE92B06A8C600A1C8A6 /* LoginView */ = {
@@ -173,8 +198,8 @@
 		88165CEE2B06AD8D00A1C8A6 /* SignUpView */ = {
 			isa = PBXGroup;
 			children = (
-				E14B377F2AFF0ACA00CA0D86 /* SignUpView.swift */,
 				88165CEF2B06B02A00A1C8A6 /* SignUpViewModel.swift */,
+				397865362B1717DF0088FD06 /* SignUpView.swift */,
 			);
 			path = SignUpView;
 			sourceTree = "<group>";
@@ -185,6 +210,7 @@
 				E1E20E9B2AFD7D3500445F8E /* DatabaseInterface.swift */,
 				8817BCA82B147D2800442FC8 /* Logger.swift */,
 				8817BCB12B15130400442FC8 /* Helper.swift */,
+				397865382B1718540088FD06 /* FocusableField.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -238,15 +264,16 @@
 		E1E20E612AFD6BDA00445F8E /* AudioYikYak */ = {
 			isa = PBXGroup;
 			children = (
-				8817BCB92B15B6A400442FC8 /* AudioProcessing */,
-				8817BCB02B1512EC00442FC8 /* Helper */,
 				398D2EA42B0D59B000990867 /* EditProfileView */,
 				398D2E9D2B0D542C00990867 /* ProfileView */,
-				88165CED2B06AD7900A1C8A6 /* UIComponents */,
-				88165CEC2B06AD6C00A1C8A6 /* Models */,
-				E14B377D2AFF0ACA00CA0D86 /* StartView.swift */,
+				39D676B22B1710CC003F9687 /* StartView */,
 				88165CE92B06A8C600A1C8A6 /* LoginView */,
 				88165CEE2B06AD8D00A1C8A6 /* SignUpView */,
+				3978653A2B171ADA0088FD06 /* Authentication */,
+				8817BCB92B15B6A400442FC8 /* AudioProcessing */,
+				8817BCB02B1512EC00442FC8 /* Helper */,
+				88165CED2B06AD7900A1C8A6 /* UIComponents */,
+				88165CEC2B06AD6C00A1C8A6 /* Models */,
 				E1E20E8D2AFD6C8200445F8E /* GoogleService-Info.plist */,
 				E1E20E622AFD6BDA00445F8E /* AudioYikYakApp.swift */,
 				E1E20E642AFD6BDA00445F8E /* ContentView.swift */,
@@ -307,6 +334,7 @@
 				E14B378F2B0F02B800CA0D86 /* FirebaseStorage */,
 				8817BCBB2B15BB2900442FC8 /* DSWaveformImage */,
 				8817BCBD2B15BB2900442FC8 /* DSWaveformImageViews */,
+				39B2B24C2B16F61A00A92A02 /* FirebaseAuth */,
 			);
 			productName = AudioYikYak;
 			productReference = E1E20E5F2AFD6BDA00445F8E /* AudioYikYak.app */;
@@ -428,8 +456,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8817BCC02B15CAF700442FC8 /* AudioRecordView.swift in Sources */,
+				39D676B12B1710BA003F9687 /* StartViewModel.swift in Sources */,
 				8817BCAB2B15106D00442FC8 /* AudioRecorder.swift in Sources */,
 				398D2EA62B0D59BC00990867 /* EditProfileView.swift in Sources */,
+				397865372B1717DF0088FD06 /* SignUpView.swift in Sources */,
 				E1E20E9A2AFD7B2700445F8E /* User.swift in Sources */,
 				E1E20E652AFD6BDA00445F8E /* ContentView.swift in Sources */,
 				88165CEB2B06A8D500A1C8A6 /* LoginViewModel.swift in Sources */,
@@ -442,13 +472,14 @@
 				8817BCA92B147D2800442FC8 /* Logger.swift in Sources */,
 				E1E20E632AFD6BDA00445F8E /* AudioYikYakApp.swift in Sources */,
 				8817BCAD2B15108800442FC8 /* AudioPlayer.swift in Sources */,
-				E14B37882AFF0C3100CA0D86 /* SignUpView.swift in Sources */,
 				8817BCAF2B15110800442FC8 /* Recording.swift in Sources */,
 				88165CF22B06BDDD00A1C8A6 /* UIValues.swift in Sources */,
+				397865392B1718540088FD06 /* FocusableField.swift in Sources */,
 				E1E20E9C2AFD7D3500445F8E /* DatabaseInterface.swift in Sources */,
 				88165CF02B06B02A00A1C8A6 /* SignUpViewModel.swift in Sources */,
 				398D2E9F2B0D543B00990867 /* ProfileView.swift in Sources */,
 				E14B37842AFF0BF400CA0D86 /* StartView.swift in Sources */,
+				3968DD662B17048400A220D4 /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,6 +859,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		39B2B24C2B16F61A00A92A02 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseAuth;
+		};
 		8817BCBB2B15BB2900442FC8 /* DSWaveformImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8817BCB52B151AC000442FC8 /* XCRemoteSwiftPackageReference "DSWaveformImage" */;

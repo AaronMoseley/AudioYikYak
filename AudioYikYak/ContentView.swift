@@ -7,13 +7,14 @@
 
 import SwiftUI
 import SwiftData
+import FirebaseAuth
 
 struct ContentView: View {
     @ObservedObject var audioRecorder: AudioRecorder
     @ObservedObject var audioPlayer: AudioPlayer
     @State private var showProfile = false
     @State private var showList = false
-    @Binding var user: User
+    @Binding var isLoggedIn: Bool
     
     var body: some View {
         NavigationView {
@@ -25,9 +26,10 @@ struct ContentView: View {
                     }
                 }
                 
-                AudioRecordView(audioRecorder: audioRecorder, user: $user)
-            }.background(
-                NavigationLink(destination: ProfileView(user: user), isActive: $showProfile) {
+                AudioRecordView(audioRecorder: audioRecorder)
+            }
+            .background(
+                NavigationLink(destination: ProfileView(), isActive: $showProfile) {
                     EmptyView()
                 }
             )
@@ -40,6 +42,15 @@ struct ContentView: View {
                         showProfile = true
                     }) {
                         Image(systemName: "person.crop.circle")
+                    }
+                }
+                ToolbarItem {
+                    Button(action: {
+                        try! Auth.auth().signOut()
+                        print("signed out")
+                        isLoggedIn = false
+                    }) {
+                        Text("Sign Out")
                     }
                 }
             }
