@@ -17,6 +17,7 @@ struct AudioRecordView: View {
     @State private var liveConfiguration: Waveform.Configuration = Waveform.Configuration(
         style: .striped(.init(color: .white, width: 3, spacing: 3))
     )
+    @Binding var currUser: CustomUser
     
     
     @State private var showAlert = false
@@ -37,9 +38,9 @@ struct AudioRecordView: View {
             VStack {
                 RecordingButton(isRecording: $isRecording) {
                     if isRecording {
-                        audioRecorder.stopRecording(username: "tmpusername")
+                        audioRecorder.stopRecording(username: currUser.username)
                     } else {
-                        audioRecorder.startRecording(username: "tmpusername")
+                        audioRecorder.startRecording(username: currUser.username)
                     }
                     isRecording.toggle()
                 }
@@ -74,6 +75,3 @@ struct RecordingButton: View {
     }
 }
 
-#Preview {
-    AudioRecordView(audioRecorder: AudioRecorder(), user: .constant(mockUser))
-}
