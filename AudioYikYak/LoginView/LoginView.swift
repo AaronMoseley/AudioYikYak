@@ -12,6 +12,7 @@ struct LoginView: View {
     @EnvironmentObject var authenticationService: AuthenticationService
     @Environment(\.dismiss) var dismiss
     @Binding var isLoggedIn: Bool
+    @Binding var isShowingLogin: Bool
     
     @FocusState private var focus: FocusableField?
     
@@ -26,6 +27,7 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
+            XDismissButton(isShowingModal: $isShowingLogin)
             Spacer()
             Text("Login")
                 .font(.largeTitle)

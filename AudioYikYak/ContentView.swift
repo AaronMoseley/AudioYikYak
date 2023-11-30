@@ -58,6 +58,8 @@ struct ContentView: View {
             .navigationBarTitle("For you", displayMode: .large)
         }
         .task {
+            print("HERE")
+            print(currUser)
             self.audioRecorder.fetchRecording()
         }
     }

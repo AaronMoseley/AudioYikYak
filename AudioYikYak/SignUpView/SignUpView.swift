@@ -17,23 +17,25 @@ struct SignUpView: View {
     
     @Binding var isLoggedIn: Bool
     @Binding var currUser: CustomUser
+    @Binding var isShowingSignUp: Bool
     
     @FocusState private var focus: FocusableField?
     
     private func createUser() {
         Task {
             if await viewModel.createUser() == true {
-                isLoggedIn = true
                 if let user = Auth.auth().currentUser {
                     currUser = await CustomUser(username: getUsername(user: user), bio: getBio(user: user))
                 }
                 dismiss()
+                isLoggedIn = true
             }
         }
     }
     
     var body: some View {
         VStack {
+            XDismissButton(isShowingModal: $isShowingSignUp)
             Spacer()
             Text("Sign Up")
                 .font(.largeTitle)

@@ -16,11 +16,13 @@ struct EditProfileView: View {
     func makeChanges() {
         if let currentUser = Auth.auth().currentUser {
             changeUserData(user: currentUser, username: currUser.username, bio: currUser.bio)
+            isEditing = false
         }
     }
     
     var body: some View {
         VStack {
+            XDismissButton(isShowingModal: $isEditing)
             Spacer()
             VStack(spacing: 20) {
                 Text("Username")
