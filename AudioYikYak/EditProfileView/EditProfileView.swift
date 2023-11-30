@@ -11,55 +11,49 @@ import FirebaseAuth
 struct EditProfileView: View {
     
     @Binding var isEditing: Bool
-    @StateObject var viewModel = EditProfileViewModel()
+    @Binding var currUser: CustomUser
+    
+    func makeChanges() {
+        if let currentUser = Auth.auth().currentUser {
+            changeUserData(user: currentUser, username: currUser.username, bio: currUser.bio)
+        }
+    }
     
     var body: some View {
         VStack {
-            if viewModel.user == nil {
-                Text("No User Found")
-            }
-            else {
-                Spacer()
-                VStack(spacing: 20) {
-                    Text("Username")
-                    TextField("Username", text: .constant(viewModel.user?.displayName ?? "No Username"))
-                        .textInputAutocapitalization(.never)
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(UIValues.cornerRadius)
-                        .padding(EdgeInsets(top: 0,
-                                            leading: UIValues.sidePadding,
-                                            bottom: 0,
-                                            trailing: UIValues.sidePadding))
-                    Text("Bio")
-                    TextField("Bio", text: .constant(viewModel.user?.description ?? "Set your bio!"))
-                        .textInputAutocapitalization(.never)
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(UIValues.cornerRadius)
-                        .padding(EdgeInsets(top: 0,
-                                            leading: UIValues.sidePadding,
-                                            bottom: 0,
-                                            trailing: UIValues.sidePadding))
-                    
-                    //SLButton(title: "Submit", imageName: "arrow.right", isShowingModal: $isEditing)
-                    Button {
-                        Task { isEditing = false }
-                    } label: {
-                        Label("Save Changes", systemImage: "arrow.forward")
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.blue)
-                    .controlSize(.large)
+            Spacer()
+            VStack(spacing: 20) {
+                Text("Username")
+                TextField("Username", text: $currUser.username)
+                    .textInputAutocapitalization(.never)
+                    .padding()
+                    .background(.white)
+                    .cornerRadius(UIValues.cornerRadius)
+                    .padding(EdgeInsets(top: 0,
+                                        leading: UIValues.sidePadding,
+                                        bottom: 0,
+                                        trailing: UIValues.sidePadding))
+                Text("Bio")
+                TextField("Bio", text: $currUser.bio)
+                    .textInputAutocapitalization(.never)
+                    .padding()
+                    .background(.white)
+                    .cornerRadius(UIValues.cornerRadius)
+                    .padding(EdgeInsets(top: 0,
+                                        leading: UIValues.sidePadding,
+                                        bottom: 0,
+                                        trailing: UIValues.sidePadding))
+                
+                Button {
+                    Task { makeChanges() }
+                } label: {
+                    Label("Save Changes", systemImage: "arrow.forward")
                 }
-                Spacer()
+                .buttonStyle(.borderedProminent)
+                .tint(.blue)
+                .controlSize(.large)
             }
-        }
-        .onAppear() {
-            let currentUser = Auth.auth().currentUser
-            if currentUser != nil {
-                viewModel.user = currentUser
-            }
+            Spacer()
         }
         .frame(
             minWidth: 0,
@@ -70,6 +64,5 @@ struct EditProfileView: View {
         )
         .background(UIValues.customBackground)
     }
-    
 }
 

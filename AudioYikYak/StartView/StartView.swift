@@ -40,7 +40,7 @@ struct StartView: View {
             LoginView(isLoggedIn: $isLoggedIn)
         }
         .sheet(isPresented: $isShowingSignUpView) {
-            SignUpView(isLoggedIn: $isLoggedIn)
+            SignUpView(isLoggedIn: $isLoggedIn, currUser: $currUser)
         }
         .frame(
             minWidth: 0,

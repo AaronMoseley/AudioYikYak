@@ -177,22 +177,22 @@ func checkIfUsernameExists(user: User) async -> Bool {
     }
 }
 
-//func changeUserData(user: User)
-//{
-//    let db = Firestore.firestore()
-//    let userDB = db.collection("users")
-//    
-//    userDB.document(user.username).setData([
-//        "password": user.password,
-//        "bio": user.bio
-//    ])
-//}
+func changeUserData(user: User, username: String, bio: String)
+{
+    let db = Firestore.firestore()
+    let userDB = db.collection("users")
+    
+    userDB.document(user.uid).setData([
+        "username": username,
+        "bio": bio
+    ])
+}
 
 func addUser(user: User, username: String) {
     let db = Firestore.firestore()
     let userDB = db.collection("users")
     userDB.document(user.uid).setData([
         "username": username,
-        "bio": "Set your bio in settings!"
+        "bio": ""
     ])
 }

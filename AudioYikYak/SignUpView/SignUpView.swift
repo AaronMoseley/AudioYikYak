@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 
 struct SignUpView: View {
+    
     @StateObject var viewModel = SignUpViewModel()
     @EnvironmentObject var authenticationService: AuthenticationService
     @Environment(\.dismiss) var dismiss
+    
     @Binding var isLoggedIn: Bool
+    @Binding var currUser: CustomUser
     
     @FocusState private var focus: FocusableField?
     
@@ -20,6 +24,9 @@ struct SignUpView: View {
         Task {
             if await viewModel.createUser() == true {
                 isLoggedIn = true
+                if let user = Auth.auth().currentUser {
+                    currUser = await CustomUser(username: getUsername(user: user), bio: getBio(user: user))
+                }
                 dismiss()
             }
         }

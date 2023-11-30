@@ -8,9 +8,7 @@
 import Foundation
 
 struct CustomUser {
-    var id = UUID()
     var username: String
     var profilePicture = "profile-image"
     var bio: String
 }
-

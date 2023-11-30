@@ -57,10 +57,8 @@ class AuthenticationService: ObservableObject {
                 return false
             }
         } catch {
-            await MainActor.run {
-                errorMessage = error.localizedDescription
-                authenticationState = .unauthenticated
-            }
+            errorMessage = error.localizedDescription
+            authenticationState = .unauthenticated
             return false
         }
     }
