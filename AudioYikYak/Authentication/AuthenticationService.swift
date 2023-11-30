@@ -48,7 +48,6 @@ class AuthenticationService: ObservableObject {
         authenticationState = .authenticating
         do {
             try await Auth.auth().createUser(withEmail: email, password: password)
-            let currentUser = Auth.auth().currentUser
             if let currentUser = Auth.auth().currentUser {
                 addUser(user: currentUser, username: username)
                 return true
