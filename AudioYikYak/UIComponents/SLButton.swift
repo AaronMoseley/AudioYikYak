@@ -16,6 +16,7 @@ struct SLButton: View {
     var body: some View {
         Button {
             isShowingModal = !isShowingModal
+            print("TAPPED")
         } label: {
             Label(title, systemImage: imageName)
         }

@@ -6,26 +6,67 @@
 //
 
 import Foundation
-
+import Combine
+import FirebaseAuth
 
 class SignUpViewModel: ObservableObject {
     
-    @Published var shouldShowSignUpView: Bool = true
-    @Published var isLoggedIn: Bool = false
-    @Published var errorMessage: String = ""
+    // MARK: - Input
+    @Published var username: String = ""
+    @Published var email: String = ""
+    @Published var password: String = ""
     
-    func signUp (username: String, password: String) async -> Bool {
-        let usernameExists = await checkIfUsernameExists(username: username)
-        
-        if usernameExists {
-            self.errorMessage = "User already exists"
+    // MARK: - Output
+    @Published var isValid: Bool  = false
+    @Published var authenticationState: AuthenticationState = .unauthenticated
+    @Published var errorMessage: String = ""
+    @Published var user: User?
+    
+    // MARK: - Dependencies
+    private var authenticationService: AuthenticationService?
+    
+    func connect(authenticationService: AuthenticationService) {
+        if self.authenticationService == nil {
+            self.authenticationService = authenticationService
+            
+            self.authenticationService?
+                .$authenticationState
+                .assign(to: &$authenticationState)
+            
+            self.authenticationService?
+                .$errorMessage
+                .assign(to: &$errorMessage)
+            
+            self.authenticationService?
+                .$user
+                .assign(to: &$user)
+            
+            Publishers.CombineLatest($email, $password)
+                .map { !($0.isEmpty && $1.isEmpty) }
+                .print()
+                .assign(to: &$isValid)
+        }
+    }
+    
+    func createUser() async -> Bool {
+        if let authenticationService = authenticationService {
+            return await authenticationService.createUser(username: username, withEmail: email, password: password)
+        }
+        else {
             return false
         }
-        
-        addUser(username: username, password: password, bio: "Add a bio about yourself!")
-        
-        shouldShowSignUpView = false
-        isLoggedIn = true
-        return true
+    }
+    
+    func signInWithEmailPassword() async -> Bool {
+        print("signing in")
+        if let authenticationService = authenticationService {
+            print("calling authenitication service")
+            return await authenticationService.signIn(withEmail: email, password: password)
+        }
+        else {
+            print("failed to call authentication service")
+            return false
+        }
     }
 }
+

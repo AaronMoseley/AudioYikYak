@@ -8,81 +8,87 @@
 import SwiftUI
 
 struct LoginView: View {
-    
-    @State var user: User
-    @StateObject var viewModel: LoginViewModel
-    @State var username: String = ""
-    @State var password: String = ""
-    @Binding var isShowingLoginView: Bool
+    @StateObject var viewModel = LoginViewModel()
+    @EnvironmentObject var authenticationService: AuthenticationService
+    @Environment(\.dismiss) var dismiss
     @Binding var isLoggedIn: Bool
-    var startView: StartView
+    
+    @FocusState private var focus: FocusableField?
+    
+    private func signInWithEmailPassword() {
+        Task {
+            if await viewModel.signInWithEmailPassword() == true {
+                isLoggedIn = true
+                dismiss()
+            }
+        }
+    }
     
     var body: some View {
         VStack {
-            XDismissButton(isShowingModal: $isShowingLoginView)
             Spacer()
-            VStack(spacing: 20) {
-                TextField("Username", text: $username)
-                    .padding()
-                    .background(.white)
-                    .cornerRadius(UIValues.cornerRadius)
-                    .padding(EdgeInsets(top: 0,
-                                        leading: UIValues.sidePadding,
-                                        bottom: 0,
-                                        trailing: UIValues.sidePadding))
-                
-                SecureField("Password", text: $password)
-                    .padding()
-                    .background(.white)
-                    .cornerRadius(UIValues.cornerRadius)
-                    .padding(EdgeInsets(top: 0,
-                                        leading: UIValues.sidePadding,
-                                        bottom: 0,
-                                        trailing: UIValues.sidePadding))
-                
-            }
-            .padding()
+            Text("Login")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .frame(maxWidth: .infinity, alignment: .leading)
             
-            Button {
-                Task { await login() }
-            } label: {
-                Label("Login", systemImage: "rectangle.portrait.and.arrow.forward")
+            HStack {
+                Image(systemName: "at")
+                TextField("Email", text: $viewModel.email)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .focused($focus, equals: .email)
+                    .submitLabel(.next)
+                    .onSubmit {
+                        self.focus = .password
+                    }
             }
+            .padding(.vertical, 6)
+            .background(Divider(), alignment: .bottom)
+            .padding(.bottom, 4)
+            
+            HStack {
+                Image(systemName: "lock")
+                SecureField("Password", text: $viewModel.password)
+                    .focused($focus, equals: .password)
+                    .submitLabel(.go)
+                    .onSubmit {
+                        signInWithEmailPassword()
+                    }
+            }
+            .padding(.vertical, 6)
+            .background(Divider(), alignment: .bottom)
+            .padding(.bottom, 8)
+            
+            if !viewModel.errorMessage.isEmpty {
+                VStack {
+                    Text(viewModel.errorMessage)
+                        .foregroundColor(Color(UIColor.systemRed))
+                }
+            }
+            
+            Button(action: signInWithEmailPassword) {
+                if viewModel.authenticationState != .authenticating {
+                    Text("Login")
+                        .frame(maxWidth: .infinity)
+                }
+                else {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .frame(maxWidth: .infinity)
+                }
+            }
+            .disabled(!viewModel.isValid)
+            .frame(maxWidth: .infinity)
             .buttonStyle(.borderedProminent)
-            .tint(.blue)
             .controlSize(.large)
-            
             Spacer()
-            Spacer()
-            
-            Text("\(viewModel.errorMessage)")
         }
-        .background(UIValues.customBackground)
-        .onChange(of: viewModel.shouldShowLoginView) { oldValue, newValue in
-            isShowingLoginView = newValue
+        .onAppear {
+            viewModel.connect(authenticationService: authenticationService)
         }
-        .onChange(of: viewModel.isLoggedIn) { oldValue, newValue in
-            isLoggedIn = newValue
-        }
-        .environment(\.colorScheme, .light)
-
-    }
-    
-    func login() async {
-        let userInfo = await viewModel.checkCanLogIn(username: self.username, password: self.password)
-        
-        if !userInfo.isEmpty {
-            let newUser = User(username: self.username, password: self.password, bio: userInfo[2])
-            self.user = newUser
-            self.startView.currUser = self.user
-            print("updated user")
-        }
-    }
-    
-    struct LoginView_Previews: PreviewProvider {
-        static var previews: some View {
-            LoginView(user: mockUser, viewModel: .init(), isShowingLoginView: .constant(true), isLoggedIn: .constant(true), startView: StartView(currUser: mockUser))
-        }
+        .listStyle(.plain)
+        .padding()
     }
 }
 

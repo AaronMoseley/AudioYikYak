@@ -6,23 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ProfileView: View {
-    @State var user: User
+    
     @State var isEditProfile: Bool = false
+    @Binding var currUser: CustomUser
     
     var body: some View {
         VStack(spacing: 30) {
-            
-            Image(user.profilePicture)
+            Image(currUser.profilePicture)
                 .resizable()
                 .frame(width: 150, height: 150)
                 .clipShape(Circle())
                 .shadow(radius: 10)
             
+            Text(currUser.username)
             
-            Text(user.username)
-            Text(user.bio)
+            Text(currUser.bio)
             
             Button {
                 isEditProfile = true
@@ -38,14 +39,9 @@ struct ProfileView: View {
               alignment: .center
             )
         .background(UIValues.customBackground)
-
         .sheet(isPresented: $isEditProfile) {
-            EditProfileView(newUser: $user, editing: $isEditProfile)
+            EditProfileView(isEditing: $isEditProfile, currUser: $currUser)
         }
     }
-}
-
-#Preview {
-    ProfileView(user: mockUser)
 }
 

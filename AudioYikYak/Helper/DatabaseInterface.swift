@@ -9,6 +9,7 @@ import Foundation
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseStorage
+import FirebaseAuth
 
 func uploadAudioFile(username: String, currentFileName: URL) async {
     let storage = Storage.storage()
@@ -189,11 +190,24 @@ func checkPassword(username: String, inputPassword: String) async -> Bool
     }
 }
 
-func getBio(username: String) async -> String
+func getUsername(user: User) async -> String
 {
     let db = Firestore.firestore()
     do {
-        let doc = try await db.collection("users").document(username).getDocument()
+        let doc = try await db.collection("users").document(user.uid).getDocument()
+        let username = doc["username"]
+        return username as! String
+    } catch {
+        print("Error getting username")
+        return ""
+    }
+}
+
+func getBio(user: User) async -> String
+{
+    let db = Firestore.firestore()
+    do {
+        let doc = try await db.collection("users").document(user.uid).getDocument()
         let bio = doc["bio"]
         
         return bio as! String
@@ -203,12 +217,11 @@ func getBio(username: String) async -> String
     }
 }
 
-func checkIfUsernameExists(username: String) async -> Bool {
+func checkIfUsernameExists(user: User) async -> Bool {
     let db = Firestore.firestore()
     
     do {
-        let doc = try await db.collection("users").document(username).getDocument()
-        
+        let doc = try await db.collection("users").document(user.uid).getDocument()
         if doc.exists { return true }
         return false
     } catch {
@@ -217,23 +230,22 @@ func checkIfUsernameExists(username: String) async -> Bool {
     }
 }
 
-func changeUserData(user: User)
+func changeUserData(user: User, username: String, bio: String)
 {
     let db = Firestore.firestore()
     let userDB = db.collection("users")
     
-    userDB.document(user.username).setData([
-        "password": user.password,
-        "bio": user.bio
+    userDB.document(user.uid).setData([
+        "username": username,
+        "bio": bio
     ])
 }
 
-func addUser(username: String, password: String, bio: String) {
+func addUser(user: User, username: String) {
     let db = Firestore.firestore()
     let userDB = db.collection("users")
-    
-    userDB.document(username).setData([
-        "password": password,
-        "bio": bio
+    userDB.document(user.uid).setData([
+        "username": username,
+        "bio": ""
     ])
 }
